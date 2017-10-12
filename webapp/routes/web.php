@@ -12,9 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Route::get('/catalog', 'CatalogController@index');
-
 Route::get('/catalog/dataTable', 'CatalogController@indexDataTable');
+
+Route::resource('/provider', 'ProviderController');
+Route::get('/provider/dataTable', 'ProviderController@indexDataTable');
+Route::get('/provider/create', 'ProviderController@create');
+
+Auth::routes();
+Route::auth();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
