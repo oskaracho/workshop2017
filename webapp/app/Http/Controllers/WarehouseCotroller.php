@@ -4,24 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class WarehouseController extends Controller
+class WarehouseCotroller extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('warehouse.warehouse'); 
+        return view('warehouse.warehouse');
     }
 
     public function indexDataTable()
     {
         // $catalogList = Warehaouse::all();
         // return response()->json($catalogList);
-    } 
- 
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -87,4 +87,5 @@ class WarehouseController extends Controller
     {
         //
     }
+
 }
