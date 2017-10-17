@@ -75,7 +75,6 @@
                     <div class="form-group">
                         <p class="text-muted text-center">Do not have an account?
                         @guest
-                        <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="dropdown">

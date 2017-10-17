@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Provider;
 use illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ProviderFormRequest;
+use Illuminate\Auth\Middleware\Authenticate;
 use DB;
 
 class ProviderController extends Controller
@@ -42,7 +43,8 @@ class ProviderController extends Controller
     public function indexDataTable()
     {
         $providerList = Provider::all();
-        return database()->json($providerList);
+        dd($providerList);
+      //  return database()->json($providerList);
     }
 
 
@@ -84,7 +86,8 @@ class ProviderController extends Controller
      */
     public function show($id)
     {
-        //
+
+
         return view ("provider.show", ["provider"=> Provider::findOrFail($id)]);
     }
 

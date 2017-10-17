@@ -11,6 +11,9 @@
 |
 */
 
+Route::auth();
+
+
 Route::get('/', function () {
     return view('auth/login');
 });
@@ -18,13 +21,14 @@ Route::get('/', function () {
 Route::get('/catalog', 'CatalogController@index');
 Route::get('/catalog/dataTable', 'CatalogController@indexDataTable');
 
-Route::resource('/provider', 'ProviderController');
+Route::resource('/provider', 'ProviderController')->middleware('auth');
 Route::get('/provider/dataTable', 'ProviderController@indexDataTable');
 Route::get('/provider/create', 'ProviderController@create');
 
-Auth::routes();
-Route::auth();
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+
 
 
