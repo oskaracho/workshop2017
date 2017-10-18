@@ -25,6 +25,10 @@ Route::resource('/provider', 'ProviderController')->middleware('auth');
 Route::get('/provider/dataTable', 'ProviderController@indexDataTable');
 Route::get('/provider/create', 'ProviderController@create');
 
+Route::resource('/product', 'ProductController')->middleware('auth');
+Route::get('/product/dataTable', 'ProductController@indexDataTable');
+Route::get('/product/create', 'ProductController@create');
+
 //Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
