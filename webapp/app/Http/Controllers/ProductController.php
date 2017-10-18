@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests;
+use App\Product;
+use illuminate\Support\Facades\Redirect;
+use App\Http\Requests\ProviderFormRequest;
+use Illuminate\Auth\Middleware\Authenticate;
+use DB;
+
 class ProductController extends Controller
 {
     /**
@@ -11,11 +18,33 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function _construct()
     {
-        //
+        $this->middleware('auth');
     }
 
+    public function index(Request $request)
+    {
+
+        if ($request)
+        {
+            /*$query=trim($request->get('searchText'));
+            $providers = DB::table('providers')->get();*/
+            $query=trim($request->searchText);
+            $products = DB::table('products')->where('product_name','LIKE','%'.$query.'%')
+                ->orderBy('id','desc')
+                ->paginate(2);
+
+            return view ('product.index',["product" =>$products ,"searchText"=>$query]);
+
+        }
+    }
+
+    public function indexDataTable()
+    {
+        $productList = Product::all();
+        return response()->json($productList);
+    }
     /**
      * Show the form for creating a new resource.
      *
