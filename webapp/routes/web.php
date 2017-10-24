@@ -21,10 +21,14 @@ Route::get('/', function () {
 Route::get('/catalog', 'CatalogController@index');
 Route::get('/catalog/dataTable', 'CatalogController@indexDataTable');
 
+//Diego
+
 Route::resource('/provider', 'ProviderController')->middleware('auth');
 Route::get('/provider/dataTable', 'ProviderController@indexDataTable');
 Route::get('/provider/create', 'ProviderController@create');
+Route::resource('/sale', 'SaleController');
 
+//Oliver
 Route::resource('/product', 'ProductController');
 Route::get('/product/dataTable', 'ProductController@indexDataTable');
 

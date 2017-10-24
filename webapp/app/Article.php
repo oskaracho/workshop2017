@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SaleDetail extends Model
+class Article extends Model
 {
     //
-    protected $table = 'saledetail';
+    //
+    protected $table = 'articles';
 
     protected $primaryKey ='id';
 
@@ -21,5 +22,4 @@ class SaleDetail extends Model
         'sale_price',
         'discount'
     ];
-
 }

@@ -14,14 +14,13 @@ class Sale extends Model
 
     protected $fillable = [
 
-        'id_cliente',
-        'tipo_comprobante',
-        'serie_comprobante',
-        'num_comprobante',
-        'impuesto',
-        'total_venta',
-        'estado'
+        'customer_id',
+        'voucher_type',
+        'voucher_series',
+        'voucher_num',
+        'tax',
+        'sale_total',
+        'state'
     ];
-
 }
 
