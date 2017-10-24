@@ -14,6 +14,16 @@ class Saledetail extends Migration
     public function up()
     {
         //
+        Schema::create('saledetail', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('sale_id');
+            $table->integer('article_id');
+            $table->integer('quantity');
+            $table->integer('sale_price');
+            $table->integer('discount');
+            $table->timestamps();
+
+        });
     }
 
     /**
@@ -24,5 +34,6 @@ class Saledetail extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('saledetail');
     }
 }

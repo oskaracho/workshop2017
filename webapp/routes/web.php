@@ -27,6 +27,7 @@ Route::resource('/provider', 'ProviderController')->middleware('auth');
 Route::get('/provider/dataTable', 'ProviderController@indexDataTable');
 Route::get('/provider/create', 'ProviderController@create');
 Route::resource('/sale', 'SaleController');
+Route::get('sale/{id}', 'SaleController@show');
 
 //Oliver
 Route::resource('/product', 'ProductController');

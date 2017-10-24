@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
  use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\SaleFormRequest;
-use  App\Sale;
+use App\Sale;
 use App\SaleDetail;
 use DB;
 Use Carbon\Carbon;
@@ -32,13 +32,13 @@ class SaleController extends Controller
             $providers = DB::table('providers')->get();*/
             $query=trim($request->searchText);
             $sales = DB::table('sales as s')
-                ->join('customer as c','s.customer_id','=','c.id')
-                ->join('sale_detail as sd','s.id','=','sd.sale_id')
+                ->join('customers as c','s.customer_id','=','c.id')
+                ->join('saledetail as sd','s.id','=','sd.sale_id')
                 ->select('s.id','s.date','c.name','s.voucher_type','s.voucher_series','s.voucher_num','s.tax','s.state','s.sale_total')
                 ->where('s.voucher_num','LIKE','%'.$query.'%')
                 ->orderBy('s.id','desc')
                 ->groupby('s.id','s.date','c.name','s.voucher_type','s.voucher_series','s.voucher_num','s.tax','s.state')
-                ->paginate(2);
+                ;
 
             return view ('sale.index',["sales" =>$sales ,"searchText"=>$query]);
 
@@ -117,12 +117,12 @@ class SaleController extends Controller
     public function show($id)
     {
         $sale = DB::table('sales as s')
-            ->join('customer as c','s.customer_id','=','c.id')
-            ->join('sale_detail as sd','s.id','=','sd.sale_id')
+            ->join('customers as c','s.customer_id','=','c.id')
+            ->join('saledetail as sd','s.id','=','sd.sale_id')
             ->select('s.id','s.date','c.name','s.voucher_type','s.voucher_series','s.voucher_num','s.tax','s.state','s.sale_total')
             ->where('s.id','=',$id)
             ->first();
-        $detail=DB::table('sale_detail as sd')
+        $detail=DB::table('saledetail as sd')
             ->join('articles as a','sd.sale_id','=','a.id')
             ->select ('a.name as article','sd.quantity','sd.discount','sd.sale_price')
             ->where('sd.sale_id','=',$id)

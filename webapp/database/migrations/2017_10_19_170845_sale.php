@@ -15,11 +15,16 @@ class Sale extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
-            $table->integer('telefono');
-            $table->string('direccion');
-            $table->string('description');
+            $table->integer('customer_id');
+            $table->string('voucher_type');
+            $table->integer('voucher_series');
+            $table->integer('voucher_num');
+            $table->dateTime('date');
+            $table->integer('tax');
+            $table->integer('sale_total');
+            $table->string('state');
             $table->timestamps();
+
         });
     }
 
@@ -30,6 +35,6 @@ class Sale extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('providers');
+        Schema::dropIfExists('sales');
     }
 }

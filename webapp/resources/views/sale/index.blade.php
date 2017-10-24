@@ -2,7 +2,7 @@
 
 @section('menu_provider', 'open active')
 @section('title', 'LISTADO DE VENTAS  ')
-@section('title-description', 'Administracion de Proveedores ')
+@section('title-description', 'Planilla ')
 
 @section('content')
 
@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <table id="mainTable">
+                    <table id="mainTable" >
                         <thead>
                         <tr>
                             <td>Fecha</td>
@@ -28,27 +28,26 @@
                             <td>Opciones</td>
                         </tr>
                         </thead>
-                        @foreach($sales as $sal)
+                        @foreach($sales as $sale)
                             <tr>
-                                <td>{{ $sal->date}}</td>
-                                <td>{{ $sal->name}}</td>
-                                <td>{{ $sal->voucher_type.':'.$sal->voucher_series.'-'.$sal->voucher_num}}</td>
-                                <td>{{ $sal->tax}}</td>
-                                <td>{{ $sal->sale_total}}</td>
-                                <td>{{ $sal->state}}</td>
+                                <td>{{ $sale->date}}</td>
+                                <td>{{ $sale->name}}</td>
+                                <td>{{ $sale->voucher_type.':'.$sale->voucher_series.'-'.$sale->voucher_num}}</td>
+                                <td>{{ $sale->tax}}</td>
+                                <td>{{ $sale->sale_total}}</td>
+                                <td>{{ $sale->state}}</td>
                                 <td>
-                                    <a href="{{URL::action('SaleController@show',$sal->id)}}"><button class="btn btn-info">Detalles</button> </a>
-                                    <a href="" data-target="#modal-delete-{{$sal->id}}" data-toggle="modal"><button class="btn btn-danger">Anular</button></a>
+                                    <a href="{{URL::action('SaleController@show',$sale->id)}}"><button class="btn btn-info">Detalles</button> </a>
+                                    <a href="" data-target="#modal-delete-{{$sale->id}}" data-toggle="modal"><button class="btn btn-danger">Anular</button></a>
                                 </td>
                                 @include('sale.modal')
                             </tr>
-
                         @endforeach
                         <tbody>
                         </tbody>
                     </table>
                 </div>
-                {{$sales->render()}}
+
             </div>
         </div>
     </section>

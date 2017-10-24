@@ -18,6 +18,7 @@ class Sale extends Model
         'voucher_type',
         'voucher_series',
         'voucher_num',
+        'date',
         'tax',
         'sale_total',
         'state'

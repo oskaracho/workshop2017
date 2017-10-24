@@ -4,11 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class Customer extends Model
 {
     //
-    //
-    protected $table = 'articles';
+    protected $table = 'customers';
 
     protected $primaryKey ='id';
 
@@ -16,10 +15,13 @@ class Article extends Model
 
     protected $fillable = [
 
-        'code',
         'name',
-        'stock',
-        'description',
-        'estado'
+        'document_type',
+        'document_type',
+        'address',
+        'phone',
+        'email'
+
     ];
+
 }

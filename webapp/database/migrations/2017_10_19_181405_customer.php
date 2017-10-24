@@ -15,12 +15,12 @@ class Customer extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('namee')->unique();
-            $table->string('tipo_documento');
-            $table->string('num_documento');
-            $table->string('direccion');
-            $table->string('telefono');
-            $table->string('email');
+            $table->string('name')->unique();
+            $table->string('document_type');
+            $table->integer('document_num');
+            $table->string('address');
+            $table->integer('phone');
+            $table->string('emaill');
             $table->timestamps();
         });
     }
