@@ -32,6 +32,7 @@ class ProviderController extends Controller
             $providers = DB::table('providers')->get();*/
             $query=trim($request->searchText);
             $providers = DB::table('providers')->where('name','LIKE','%'.$query.'%')
+                ->whereNull('deleted_at')
                 ->orderBy('id','desc')
                 ->paginate(2);
 
