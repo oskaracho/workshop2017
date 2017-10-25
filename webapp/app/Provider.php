@@ -13,7 +13,7 @@ class Provider extends Model
 
      protected $primaryKey ='id';
 
-    protected $dates ='delete_at';
+    protected $dates =['delete_at'];
 
      public $timestamps = true;
 

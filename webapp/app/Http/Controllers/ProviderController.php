@@ -132,7 +132,7 @@ class ProviderController extends Controller
     public function destroy($id)
     {
         //
-        $provider =Provider::findOrFail($id);
+        $provider =Provider::find($id);
         $provider -> delete();
         return redirect('provider');
     }
