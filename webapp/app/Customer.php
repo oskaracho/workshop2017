@@ -20,7 +20,7 @@ class Customer extends Model
         'document_type',
         'address',
         'phone',
-        'email'
+        'emaill'
 
     ];
 

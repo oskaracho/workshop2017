@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Customer;
 
 class CustomerSeeder extends Seeder
 {
@@ -14,11 +15,11 @@ class CustomerSeeder extends Seeder
         //
         $customer = new Customer;
         $customer->name = "Pedro";
-        $customer->docuemnt_type = "Carnet";
-        $customer->docuemnt_num = "6178926";
+        $customer->document_type = "Carnet:";
+        $customer->document_num = "6178926";
         $customer->address = "Obrajes";
         $customer->phone = "60653243";
         $customer->emaill = "diegoalecl10@gmail.com";
         $customer->save();
-           }
+    }
 }

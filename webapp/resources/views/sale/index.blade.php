@@ -10,13 +10,14 @@
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                 <a href="sale/create"><button class="btn btn-success">NUEVO</button> </a>
-                @include('sale.search')
+                {{--@include('sale.search')--}}
+            {{--dd($sales)--}}
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <table id="mainTable" >
+                    <table  >
                         <thead>
                         <tr>
                             <td>Fecha</td>

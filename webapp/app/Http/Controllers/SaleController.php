@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Requests\SaleFormRequest;
 use App\Sale;
 use App\SaleDetail;
-use DB;
+use Illuminate\Support\Facades\DB;
 Use Carbon\Carbon;
 use Response;
 use Illuminate\Support\Collection;
@@ -17,7 +17,7 @@ use Illuminate\Support\Collection;
 
 class SaleController extends Controller
 {
-    //
+    //return view ('sale.index',compact(['sales','query']))  ->where('sales.voucher_num','LIKE','%'.$query.'%') ->join('saledetail','sales.id','=','saledetail.sale_id');
     public function _construct()
     {
 
@@ -28,17 +28,16 @@ class SaleController extends Controller
 
         if ($request)
         {
+
             /*$query=trim($request->get('searchText'));
             $providers = DB::table('providers')->get();*/
             $query=trim($request->searchText);
-            $sales = DB::table('sales as s')
-                ->join('customers as c','s.customer_id','=','c.id')
-                ->join('saledetail as sd','s.id','=','sd.sale_id')
-                ->select('s.id','s.date','c.name','s.voucher_type','s.voucher_series','s.voucher_num','s.tax','s.state','s.sale_total')
-                ->where('s.voucher_num','LIKE','%'.$query.'%')
-                ->orderBy('s.id','desc')
-                ->groupby('s.id','s.date','c.name','s.voucher_type','s.voucher_series','s.voucher_num','s.tax','s.state')
-                ;
+            $sales = DB::table('sales')
+                ->join('customers','sales.customer_id','=','customers.id')
+                ->select('sales.id','sales.date','customers.name','sales.voucher_type','sales.voucher_series','sales.voucher_num','sales.tax','sales.state','sales.sale_total')
+                ->orderBy('sales.id','desc')
+                ->groupby('sales.id','sales.date','customers.name','sales.voucher_type','sales.voucher_series','sales.voucher_num','sales.tax','sales.state')
+                ->paginate(1);
 
             return view ('sale.index',["sales" =>$sales ,"searchText"=>$query]);
 
@@ -50,11 +49,11 @@ class SaleController extends Controller
         //
             $customers=DB::table('customers')
             ->get();
-            $articles=DB::table('articles as art')
-            ->select(DB::raw('CONCAT(art.code," ",art.name) as articles'),'art.id','art.stock','art.sale_total')
-            ->where('art.state','=','activo')
-            ->where('art.stock','>','0')
-            -groupBy('articles','art.id','art.stock')
+            $articles=DB::table('articles')
+            ->select(DB::raw('CONCAT(articles.code," ",articles.name)'),'articles.id','articles.stock','articles.sale_total')
+            ->where('articles.state','=','activo')
+            ->where('articles.stock','>','0')
+            ->groupBy('articles.id','articles.stock')
             ->get();
         return view ("sale.create",["customers"=>$customers,"articles=>$articles"]);
 
