@@ -50,12 +50,12 @@ class SaleController extends Controller
             $customers=DB::table('customers')
             ->get();
             $articles=DB::table('articles')
-            ->select(DB::raw('CONCAT(articles.code," ",articles.name)'),'articles.id','articles.stock','articles.sale_total')
-            ->where('articles.state','=','activo')
+            ->select(DB::raw('CONCAT(articles.code,articles.name)As article'),'articles.id','articles.stock','articles.sale_price')
+            ->where('articles.state','=','A')
             ->where('articles.stock','>','0')
-            ->groupBy('articles.id','articles.stock')
+            ->groupBy('article','articles.id','articles.stock')
             ->get();
-        return view ("sale.create",["customers"=>$customers,"articles=>$articles"]);
+        return view ("sale.create",["customers"=>$customers,"articles"=>$articles]);
 
     }
 
