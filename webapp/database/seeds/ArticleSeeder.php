@@ -18,6 +18,7 @@ class ArticleSeeder extends Seeder
         $article->name = "Lavadora";
         $article->stock = "61";
         $article->state = "A";
+        $article->sale_price = "45";
         $article->save();
 
     }

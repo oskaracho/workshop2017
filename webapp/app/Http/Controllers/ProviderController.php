@@ -9,6 +9,8 @@ use App\Provider;
 use illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ProviderFormRequest;
 use Illuminate\Auth\Middleware\Authenticate;
+use Illuminate\Support\Facades\View;
+
 use DB;
 
 class ProviderController extends Controller
@@ -57,7 +59,8 @@ class ProviderController extends Controller
     public function create(Request $request)
     {
         //
-        return view ("provider.create");
+        $provider = new Provider;
+        return View::make("provider.create")->with('provider', $provider);
     }
 
     /**

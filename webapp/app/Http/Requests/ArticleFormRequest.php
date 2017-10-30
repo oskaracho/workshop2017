@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProviderFormRequest extends FormRequest
+class ArticleFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,19 +23,10 @@ class ProviderFormRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name'=> 'min:4',
-            'telefono'=> 'required ',
-            'direccion'=> 'required',
-            'description'=> 'required',
 
-            //
-        ];
     }
     public function messages()
     {
-        return[
-            'name.min' =>'Se requiere 4 letras minimo',
-        ];
+
     }
 }

@@ -18,9 +18,8 @@
 
             {{ Form::open(array('url'=>'sale','method'=>'POST','autocomplete'=>'off'))}}
              {{Form::token()}}
-
             <div class="form-group">
-                <label for="customer">Cliente * </label>
+                <label for="customer">Cliente </label>
                 <select name="id" id="id" class="form-control selectpicker" data-live-search="true" >
                     @foreach($customers as $customer)
                         <option value="{{$customer->id}}">{{$customer->name}}</option>
@@ -37,15 +36,16 @@
             </div>
             <div class="form-group">
                 <label for="voucher_series">Serie Comprobante</label>
-                <input type="text" name="voucher_series" value="{{old('voucher_series')}}" placeholder="voucher_type">
+                <input type="text" name="voucher_series" value="{{old('voucher_series')}}" placeholder="Tipo de Comprobante ">
             </div>
             <div class="form-group">
-                <label for="voucher_num">Numero Comprobante * </label>
-                <input type="text" name="voucher_num" value="{{old('voucher_num')}}" placeholder="voucher_num">
+                <label for="voucher_num">Numero Comprobante </label>
+                <input type="text" name="voucher_num" value="{{old('voucher_num')}}" placeholder="N de Comprobante">
             </div>
             <div class="form-group">
                 <label >Articulo</label>
-                <select name="id" id="id" class="form-control selectpicker" id='id' data-live-search="true" >
+                <select name="pidarticulo" id="pidarticulo" class="form-control selectpicker"  data-live-search="true">
+                    <option value=""></option>
                     @foreach($articles as $article)
                         <option value="{{$article->id}}_{{$article->stock}}_{{$article->sale_price}}">{{$article->article}}</option>
                     @endforeach
@@ -56,8 +56,12 @@
                 <input type="number" name="pquantity" id="pquantity" class="form-control" placeholder="quantity" >
             </div>
             <div class="form-group">
+                <label for="stock">Stock </label>
+                <input type="number" disabled name="pstock" id="pstock" class="form-control" placeholder="stock" >
+            </div>
+            <div class="form-group">
                 <label for="sale_price">Precio Venta </label>
-                <input type="number" name="psale_price" id="psale_price" class="form-control" placeholder="sale_price" >
+                <input type="number"  disabled name="psale_price" id="psale_price" class="form-control" placeholder="sale_price" >
             </div>
             <div class="form-group">
                 <label for="discount">Descuento</label>
@@ -98,7 +102,7 @@
             </div>
 
              {{Form::close()}}
+</div>
+</div>
 
-</div>
-</div>
 @endsection

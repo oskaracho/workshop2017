@@ -19,7 +19,7 @@ class Article extends Model
         'code',
         'name',
         'stock',
-        'description',
-        'estado'
+        'state',
+        'sale_price'
     ];
 }

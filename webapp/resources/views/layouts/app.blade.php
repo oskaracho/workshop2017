@@ -350,5 +350,31 @@
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/main2.js') }}"></script>
+<script type="text/javascript">
+    alert(44444);
+    $(document).ready(function(){
+        $('#bt_add').click(function(){
+            agregar()
+        });
+    });
+
+    var cont=0;
+    total=0;
+    subtotal=[];
+    $("#guardar").hide();
+    $("#pidarticulo").change(mostrarValores);
+
+    function mostrarValores(){
+        datosArticulo=document.getElementById('pidarticulo').value.split('_');
+        $("#psale_price").val(datosArticulo[2]);
+        $("#pstock").val(datosArticulo[1]);
+    }
+
+
+    function agregar()
+    {
+
+    }
+</script>
 </body>
 </html>
