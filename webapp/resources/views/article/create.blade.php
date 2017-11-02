@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
                 <label for="sale_price">Precio Venta * </label>
-                <input type="number" name="sale-price" class="form-control" placeholder="sale_price">
+                <input type="number" name="sale_price" class="form-control" placeholder="sale_price">
             </div>
             <div class="form-group">
                 <button href="" class="btn btn-primary" type="submit">Guardar</button>

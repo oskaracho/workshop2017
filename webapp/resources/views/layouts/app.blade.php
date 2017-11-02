@@ -351,7 +351,7 @@
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/main2.js') }}"></script>
 <script type="text/javascript">
-    alert(44444);
+    //alert(44444);
     $(document).ready(function(){
         $('#bt_add').click(function(){
             agregar()

@@ -57,7 +57,7 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store ($request)
+    public function store (ArticleFormRequest $request)
     {
         //
         $article = new Article;

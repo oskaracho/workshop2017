@@ -23,10 +23,10 @@ class ArticleFormRequest extends FormRequest
      */
     public function rules()
     {
-
+        return [
+            'name'=> 'min:4',
+            //
+        ];
     }
-    public function messages()
-    {
 
-    }
 }
