@@ -17,7 +17,7 @@ class Customer extends Model
 
         'name',
         'document_type',
-        'document_type',
+        'document_num',
         'address',
         'phone',
         'emaill'

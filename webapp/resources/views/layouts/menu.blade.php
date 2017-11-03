@@ -9,15 +9,15 @@
                 <i class="fa fa-home"></i> Catalogos </a>
         </li>
         <li class="@yield('menu_provider','')">
-            <a href="">
+            <a href="provider">
                 <i class="fa fa-th-large"></i> Proveedores
                 <i class="fa arrow"></i>
             </a>
 
         </li>
-        <li>
-            <a href="">
-                <i class="fa fa-bar-chart"></i> Charts
+        <li  class="@yield('menu_customer','')">
+            <a href="customer">
+                <i class="fa fa-bar-chart"></i> Clientes
                 <i class="fa arrow"></i>
             </a>
             <ul class="sidebar-nav">

@@ -29,6 +29,7 @@ Route::get('/provider/create', 'ProviderController@create');
 
 Route::resource('/article', 'ArticleController')->middleware('auth');
 
+Route::resource('/customer', 'CustomerController')->middleware('auth');
 
 Route::resource('/sale', 'SaleController')->middleware('auth');;
 Route::resource('/sale', 'SaleController')->middleware('auth');;
