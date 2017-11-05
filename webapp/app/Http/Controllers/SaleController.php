@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use Illuminate\Http\Request;
 
  use Illuminate\Support\Facades\Redirect;
@@ -31,7 +32,6 @@ class SaleController extends Controller
 
             /*$query=trim($request->get('searchText'));
             $providers = DB::table('providers')->get();*/
-            $query=trim($request->searchText);
             $sales = DB::table('sales')
                 ->join('customers','sales.customer_id','=','customers.id')
                 ->select('sales.id','sales.date','customers.name','sales.voucher_type','sales.voucher_series','sales.voucher_num','sales.tax','sales.state','sales.sale_total')
@@ -39,7 +39,7 @@ class SaleController extends Controller
                 ->groupby('sales.id','sales.date','customers.name','sales.voucher_type','sales.voucher_series','sales.voucher_num','sales.tax','sales.state')
                 ->paginate(1);
 
-            return view ('sale.index',["sales" =>$sales ,"searchText"=>$query]);
+            return view ('sale.index',["sales" =>$sales ]);
 
         }
     }
@@ -47,6 +47,9 @@ class SaleController extends Controller
     public function create(Request $request)
     {
         //
+            $customers1 = Customer::name($request -> get('name'))
+                ->orderBy('id','DESC')
+                ->paginate();
             $customers=DB::table('customers')
             ->get();
             $articles=DB::table('articles')
@@ -55,16 +58,13 @@ class SaleController extends Controller
             ->where('articles.stock','>','0')
             ->groupBy('article','articles.id','articles.stock')
             ->get();
-        return view ("sale.create",["customers"=>$customers,"articles"=>$articles]);
+
+
+        return view ("sale.create",["customers"=>$customers,"articles"=>$articles,"customers"=>$customers1]);
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(SaleFormRequest $request)
     {
         //

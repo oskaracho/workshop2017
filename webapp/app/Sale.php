@@ -23,5 +23,6 @@ class Sale extends Model
         'sale_total',
         'state'
     ];
+
 }
 

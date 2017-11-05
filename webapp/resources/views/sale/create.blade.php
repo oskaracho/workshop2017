@@ -15,9 +15,14 @@
                     </ul>
                 </div>
             @endif
+           {{--@include('sale.search')--}}
+            @include('sale.search')
 
             {{ Form::open(array('url'=>'sale','method'=>'POST','autocomplete'=>'off'))}}
              {{Form::token()}}
+
+
+
             <div class="form-group">
                 <label for="customer">Cliente </label>
                 <select name="id" id="id" class="form-control selectpicker" data-live-search="true" >

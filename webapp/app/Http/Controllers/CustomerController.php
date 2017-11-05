@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Customer;
 use App\Http\Controllers;
-
+use App\Http\Requests\CustomerFormRequest;
 use illuminate\Support\Facades\Redirect;
-use App\Http\Requests\ArticleFormRequest;
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Facades\View;
 
@@ -52,13 +52,8 @@ class CustomerController extends Controller
         return view("customer.create");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store ($request)
+
+    public function store (CustomerFormRequest $request)
     {
         //
         $customer = new Customer;

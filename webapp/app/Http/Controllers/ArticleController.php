@@ -51,12 +51,7 @@ class ArticleController extends Controller
         return view("article.create");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store (ArticleFormRequest $request)
     {
         //

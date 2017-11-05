@@ -24,4 +24,9 @@ class Customer extends Model
 
     ];
 
+    public function scopeName($query,$name){
+
+        //
+        $query -> where ('name',$name);
+    }
 }
