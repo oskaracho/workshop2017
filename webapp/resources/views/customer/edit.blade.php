@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('menu_provider', 'open active')
+@section('menu_customer', 'open active')
 @section('title', 'Editar Proveedores ')
 @section('title-description', 'Administracion de Proveedores ')
 @section ('content')

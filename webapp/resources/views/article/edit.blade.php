@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('menu_provider', 'open active')
+@section('menu_article', 'open active')
 @section('title', 'Editar Articulo ')
 @section('title-description', '=============================== ')
 @section ('content')

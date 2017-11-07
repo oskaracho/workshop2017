@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('menu_provider', 'open active')
+@section('menu_sale', 'open active')
 @section('title', 'LISTADO DE VENTAS  ')
 @section('title-description', 'Planilla ')
 

@@ -9,7 +9,7 @@
             <h2> : </h2>
 		</span>
         <span class="input-group-btn">
-            <a href="customer/create"> <button type="button" class="btn btn-primary btn-sm"> Registrar</button> </a>
+            <a href="customer/create"> <button type="button" class="btn btn-danger btn-sm"> Registrar</button> </a>
         </span>
     </div>
 

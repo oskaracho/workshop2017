@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('menu_provider', 'open active')
+@section('menu_article', 'open active')
 @section('title', 'Planilla de Registros ')
 @section('title-description', '======================= ')
 @section ('content')
