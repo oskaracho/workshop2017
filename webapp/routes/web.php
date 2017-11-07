@@ -31,8 +31,9 @@ Route::resource('/article', 'ArticleController')->middleware('auth');
 
 Route::resource('/customer', 'CustomerController')->middleware('auth');
 
-Route::resource('/sale', 'SaleController')->middleware('auth');;
-Route::resource('/sale', 'SaleController')->middleware('auth');;
+
+Route::resource('/sale', 'SaleController')->middleware('auth');
+Route::get('/sale/customer/create', 'CustomerController@create')->middleware('auth');
 //Route::get('sale/{id}', 'SaleController@show');
 
 //Oliver

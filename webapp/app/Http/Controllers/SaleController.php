@@ -37,7 +37,7 @@ class SaleController extends Controller
                 ->select('sales.id','sales.date','customers.name','sales.voucher_type','sales.voucher_series','sales.voucher_num','sales.tax','sales.state','sales.sale_total')
                 ->orderBy('sales.id','desc')
                 ->groupby('sales.id','sales.date','customers.name','sales.voucher_type','sales.voucher_series','sales.voucher_num','sales.tax','sales.state')
-                ->paginate(1);
+                ->paginate(4);
 
             return view ('sale.index',["sales" =>$sales ]);
 
@@ -68,15 +68,15 @@ class SaleController extends Controller
     public function store(SaleFormRequest $request)
     {
         //
-        try {
+      //  try {
             DB::beginTransaction();
             $sale = new Sale;
-            $sale->customer_id = $request->customer_id;
+            $sale->customer_id = $request->id;
             $sale->voucher_type = $request->voucher_type;
             $sale->voucher_series = $request->voucher_series;
             $sale->voucher_num = $request->voucher_num;
             $sale->sale_total = $request->sale_total;
-            $mytime = Carbon::now('America/La Paz');
+            $mytime = Carbon::now('America/La_Paz');
             $sale->date = $mytime->toDayDateTimeString();
             $sale->tax = '18';
             $sale->state = 'A';
@@ -100,10 +100,10 @@ class SaleController extends Controller
             }
 
             DB::commit();
-        }catch(\Exception $e)
-        {
-            DB::rollback();
-        }
+        //}catch(\Exception $e)
+        //{
+          //  DB::rollback();
+        //}
         return redirect('sale');
     }
 

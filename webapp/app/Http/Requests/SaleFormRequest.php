@@ -25,7 +25,6 @@ class SaleFormRequest extends FormRequest
     {
         return [
             //
-            'id_cliente'=>'required'
         ];
     }
 }
