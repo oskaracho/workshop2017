@@ -13,33 +13,29 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $product = new Product;
-        $product->product_name = "SMART TV 65p 4K SONY";
-        $product->product_description = "Smart TV WIFI 4K SUPER AMOLED";
-        $product->product_price = "1600";
+        $product->product_name = "LAVADORA";
+        $product->product_description = "LAVADORAS PARA EL HOGAR DE DIFERENTES CAPACIDADES Y MARCAS";
         $product->product_date_up = "18/10/2017";
         $product->product_date_down = "18/12/2017";
         $product->save();
 
         $product = new Product;
-        $product->product_name = "SMART TV 55p 4K SONY";
-        $product->product_description = "Smart TV WIFI 4K SUPER AMOLED";
-        $product->product_price = "1300";
+        $product->product_name = "SMART TV";
+        $product->product_description = "TELEVISORES DE DIFERENTES TAMAÑOS Y MARCAS";
         $product->product_date_up = "18/10/2017";
         $product->product_date_down = "18/12/2017";
         $product->save();
 
         $product = new Product;
-        $product->product_name = "SMART TV 42p 4K SONY";
-        $product->product_description = "Smart TV WIFI 4K LED";
-        $product->product_price = "900";
+        $product->product_name = "BLU-RAY";
+        $product->product_description = "LECTORES BLU-RAY DIFERENTES MARCAS Y CARACTERISTICAS";
         $product->product_date_up = "18/10/2017";
         $product->product_date_down = "18/12/2017";
         $product->save();
 
         $product = new Product;
-        $product->product_name = "SMART TV 32p 4K SONY";
-        $product->product_description = "Smart TV WIFI 4K LED";
-        $product->product_price = "500";
+        $product->product_name = "HELADERA";
+        $product->product_description = "HELADERAS DE UN Y DOS CUERPOS DIFERENTES CAPACIDADES";
         $product->product_date_up = "18/10/2017";
         $product->product_date_down = "18/12/2017";
         $product->save();
