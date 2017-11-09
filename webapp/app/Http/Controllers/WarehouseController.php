@@ -63,6 +63,7 @@ class WarehouseController extends Controller
             $warehouse->user = $request->ci;
             $warehouse->save();
             return redirect()->back();
+
         }
     }
 
