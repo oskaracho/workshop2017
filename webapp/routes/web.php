@@ -44,6 +44,7 @@ Route::get('/product/dataTable', 'ProductController@indexDataTable');
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-
+//oscar
+Route::resource('/warehouse', 'WarehouseController');
 
 
