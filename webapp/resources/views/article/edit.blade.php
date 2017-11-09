@@ -5,7 +5,7 @@
 @section ('content')
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <h3>Administracion</h3>
+            <h3>Administracion de Articulos</h3>
             @if (count($errors)>0)
                 <div class="alert alert-danger">
                     <ul>
@@ -38,7 +38,7 @@
             </div>
             <div class="form-group">
                 <label for="sale_price">Precio Venta * </label>
-                <input type="text" name="sale-price" class="form-control" value="{{$article->sale_price}}"placeholder="estado">
+                <input type="text" name="sale-price" class="form-control" value="{{$article->sale_price}}"placeholder="sale_price">
             </div>
             <div class="form-group">
                 <button href="" class="btn btn-primary" type="submit">Guardar</button>
