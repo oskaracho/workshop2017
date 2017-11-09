@@ -15,7 +15,7 @@ class WarehouseController extends Controller
      */
     public function index()
     {
-        $warehouse=Warehouses::orderBy('id','ASC')->paginate(5);
+       // $warehouse=Warehouses::orderBy('id','ASC')->paginate(5);
         return view('warehouse.create');
     }
 

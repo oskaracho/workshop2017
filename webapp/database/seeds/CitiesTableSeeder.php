@@ -20,5 +20,6 @@ class CitiesTableSeeder extends Seeder
             'id' => $c++,
             'name' => $city[$i]]);
         }
+
     }
 }
