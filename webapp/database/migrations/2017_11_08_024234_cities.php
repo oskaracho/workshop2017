@@ -17,6 +17,7 @@ class Cities extends Migration
             $table->integer('id');
             $table->string('name');
         });
+
     }
 
     /**
