@@ -23,7 +23,8 @@ class Warehouse extends Migration
             $table->integer('user');
             $table->timestamps();
 
-        });    }
+        });
+    }
 
     /**
      * Reverse the migrations.
