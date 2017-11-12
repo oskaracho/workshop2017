@@ -82,7 +82,7 @@ class SaleController extends Controller
             $sale->state = 'A';
             $sale->save();
 
-            $article_id = $request->id;
+            $article_id = $request->article_id;
             $quantity = $request->quantity;
             $discount = $request->discount;
             $sale_price = $request->sale_price;
