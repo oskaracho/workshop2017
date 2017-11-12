@@ -24,9 +24,9 @@ class Customer extends Model
 
     ];
 
-    public function scopeName($query,$name){
+    public function scopeDocument($query,$document_num){
 
         //
-        $query -> where ('name',$name);
+        $query -> where ('document_num',$document_num);
     }
 }

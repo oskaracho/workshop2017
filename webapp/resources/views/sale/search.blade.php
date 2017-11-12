@@ -1,7 +1,7 @@
 {!! Form::open(array('url'=>'sale/create','method'=>'GET','autocomplete'=>'off','role'=>'search')) !!}
 <div class="form-group">
     <div class="input-group">
-        {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombre de Usuario'])!!}
+        {!! Form::text('document_num',null,['class'=>'form-control','placeholder'=>'Cedula de Identidad'])!!}
         <span class="input-group-btn">
 			<button type="submit" class="btn btn-primary">Buscar</button>
 		</span>

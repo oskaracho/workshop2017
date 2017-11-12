@@ -37,7 +37,7 @@ class SaleController extends Controller
                 ->select('sales.id','sales.date','customers.name','sales.voucher_type','sales.voucher_series','sales.voucher_num','sales.tax','sales.state','sales.sale_total')
                 ->orderBy('sales.id','desc')
                 ->groupby('sales.id','sales.date','customers.name','sales.voucher_type','sales.voucher_series','sales.voucher_num','sales.tax','sales.state')
-                ->paginate(4);
+                ->paginate(2);
 
             return view ('sale.index',["sales" =>$sales ]);
 
@@ -47,7 +47,7 @@ class SaleController extends Controller
     public function create(Request $request)
     {
         //
-            $customers1 = Customer::name($request -> get('name'))
+            $customers1 = Customer::document($request -> get('document_num'))
                 ->orderBy('id','DESC')
                 ->paginate();
             $customers=DB::table('customers')
@@ -82,7 +82,7 @@ class SaleController extends Controller
             $sale->state = 'A';
             $sale->save();
 
-            $article_id = $request->article_id;
+            $article_id = $request->id;
             $quantity = $request->quantity;
             $discount = $request->discount;
             $sale_price = $request->sale_price;

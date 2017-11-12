@@ -143,43 +143,43 @@
                                             </div>
                                         </div>
                                     </div>
-                                </section>
-                                <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
-                                    <div class="form-group">
-                                        <button type="button"  id="bt_add" class="btn btn-primary" >Agregar</button>
+                                    <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
+                                        <div class="form-group">
+                                            <button type="button"  id="bt_add" class="btn btn-primary" >Agregar</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                                    <div class="card">
-                                        <table  id="detalles" class="table table-striped table-bordered table-condensed table-hover">
-                                            <thead style="background-color: #A9D0F5">
-                                            <th>Opciones</th>
-                                            <th>Articulo</th>
-                                            <th>Cantidad</th>
-                                            <th>Precio Venta</th>
-                                            <th>Descuento</th>
-                                            <th>Subtotal</th>
-                                            </thead>
-                                            <tfoot>
-                                            <th>TOTAL</th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
+                                    <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                                        <div class="card">
+                                            <table  id="detalles" class="table table-striped table-bordered table-condensed table-hover">
+                                                <thead style="background-color: #A9D0F5">
+                                                <th>Opciones</th>
+                                                <th>Articulo</th>
+                                                <th>Cantidad</th>
+                                                <th>Precio Venta</th>
+                                                <th>Descuento</th>
+                                                <th>Subtotal</th>
+                                                </thead>
+                                                <tfoot>
+                                                <th>TOTAL</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
 
-                                            <th>
-                                                <h4 id="total">s/. 0.00</h4>
-                                                <input type="hidden" name="sale_total" id="sale_total">
-                                            </th>
-                                            </tfoot>
-                                            <tbody>
-                                            </tbody>
-                                        </table>
+                                                <th>
+                                                    <h4 id="total">s/. 0.00</h4>
+                                                    <input type="hidden" name="sale_total" id="sale_total">
+                                                </th>
+                                                </tfoot>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
-                                </div>
+                                </section>
+
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -197,5 +197,6 @@
              {{Form::close()}}
 </div>
 </div>
+    <script src="{{ asset('js/sale.js') }}"></script>
 
 @endsection
