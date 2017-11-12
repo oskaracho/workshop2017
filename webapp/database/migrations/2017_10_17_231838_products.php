@@ -17,7 +17,6 @@ class Products extends Migration
             $table->increments('id');
             $table->string('product_name')->unique();
             $table->string('product_description');
-            $table->double('product_price');
             $table->date('product_date_up');
             $table->date('product_date_down');
             $table->timestamps();

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class WarehouseCotroller extends Controller
+use App\Warehouses;
+
+class WarehouseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class WarehouseCotroller extends Controller
      */
     public function index()
     {
-        return view('warehouse.warehouse');
+       // $warehouse=Warehouses::orderBy('id','ASC')->paginate(5);
+        return view('warehouse.create');
     }
 
     public function indexDataTable()
@@ -29,7 +32,7 @@ class WarehouseCotroller extends Controller
      */
     public function create()
     {
-        //
+        return view ("warehouse.create");
     }
 
     /**
@@ -40,7 +43,28 @@ class WarehouseCotroller extends Controller
      */
     public function store(Request $request)
     {
+        //validate fields
+        $toValidate = $request->validate([
+            'name' => 'required',
+            'volumen' => 'required',
+            'branches' => 'required',
+            'city' => 'required',
+            'address' => 'required',
+            'ci' => 'required'
+        ]);
         //
+        if($toValidate) {
+            $warehouse = new Warehouses;
+            $warehouse->name = $request->name;
+            $warehouse->volumen = $request->volumen;
+            $warehouse->branches = $request->branches;
+            $warehouse->city = $request->city;
+            $warehouse->address = $request->address;
+            $warehouse->user = $request->ci;
+            $warehouse->save();
+            return redirect()->back();
+
+        }
     }
 
     /**

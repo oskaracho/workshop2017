@@ -23,19 +23,11 @@
             <a href="index.html">
                 <i class="fa fa-home"></i> Catalogo  </a>
         </li>
-        <li  class="@yield('menu_dashword','')">
-            <a href="index.html">
-                <i class="fa fa-bar-chart"></i> Clientes
-                <i class="fa arrow"></i>
+        <li class="@yield('menu_warehouse','')">
+            <a href="warehouse">
+                <i class="fa fa-th-large"></i> Almacenes
             </a>
-            <ul class="sidebar-nav">
-                <li>
-                    <a href="charts-flot.html"> Flot Charts </a>
-                </li>
-                <li>
-                    <a href="charts-morris.html"> Morris Charts </a>
-                </li>
-            </ul>
+
         </li>
 
        

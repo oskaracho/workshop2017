@@ -37,13 +37,14 @@ Route::get('/sale/customer/create', 'CustomerController@create')->middleware('au
 //Route::get('sale/{id}', 'SaleController@show');
 
 //Oliver
-Route::resource('/product', 'ProductController');
+Route::get('/product', 'ProductController@index');
 Route::get('/product/dataTable', 'ProductController@indexDataTable');
 
 //Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-
+//oscar
+Route::resource('/warehouse', 'WarehouseController');
 
 
