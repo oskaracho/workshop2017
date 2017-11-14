@@ -20,7 +20,7 @@
             @include('sale.search')
 
             {{ Form::open(array('url'=>'sale','method'=>'POST','autocomplete'=>'off'))}}
-             {{Form::token()}}
+
 
 
         </div>
@@ -186,8 +186,7 @@
             </section>
                     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="form-group">
-                            {{--<input name="_token" value="{{cdrf_token() }}" type="hidden" ></input>--}}
-                            <button href="" class="btn btn-primary" type="submit">Guardar</button>
+                            {!! Form::submit('Click Me!', ['id' => 'guardar']) !!}
                             <button class="btn btn-danger" type="reset">Cancelar</button>
                         </div>
                     </div>

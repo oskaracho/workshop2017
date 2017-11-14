@@ -68,6 +68,7 @@ class SaleController extends Controller
     public function store(SaleFormRequest $request)
     {
         //
+            dd($request->all());
       //  try {
             DB::beginTransaction();
             $sale = new Sale;
@@ -82,7 +83,7 @@ class SaleController extends Controller
             $sale->state = 'A';
             $sale->save();
 
-            $article_id = $request->article_id;
+            $article_id = $request->idarticulo;
             $quantity = $request->quantity;
             $discount = $request->discount;
             $sale_price = $request->sale_price;

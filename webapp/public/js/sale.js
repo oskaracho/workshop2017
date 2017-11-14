@@ -20,7 +20,7 @@ function mostrarValores(){
 function agregar()
 {
     datosArticulo=document.getElementById('pidarticulo').value.split('_');
-    id = datosArticulo[0];
+    idarticulo = datosArticulo[0];
     article = $("#pidarticulo option:selected").text();
     quantity = $("#pquantity").val();
     discount = $("#pdiscount").val();
@@ -30,10 +30,10 @@ function agregar()
         if (stock >= quantity) {
             subtotal[cont] = (quantity * sale_price - discount);
             total = total + subtotal[cont];
-            var fila = '<tr class="selected" id="fila' + cont + '"><td><button type="button" class="btn btn-warning" onclick="eliminar(' + cont + ');">X</button> </td><td><input type="hidden" name="id[]" value="' + id + '">' + article + '</td><td><input type="number" name="quantity[]" value="' + quantity + '"></td><td><input type="number" name="sale_price[]" value="' + sale_price + '"></td><td><input type="number" name="discount[]" value="' + discount + '"></td><td>' + subtotal[cont] + '<td></tr>';
+            var fila = '<tr class="selected" id="fila' + cont + '"><td><button type="button" class="btn btn-warning" onclick="eliminar(' + cont + ');">X</button> </td><td><input type="hidden" name="idarticulo[]" value="' + idarticulo + '">' + article + '</td><td><input type="number" name="quantity[]" value="' + quantity + '"></td><td><input type="number" name="sale_price[]" value="' + sale_price + '"></td><td><input type="number" name="discount[]" value="' + discount + '"></td><td>' + subtotal[cont] + '<td></tr>';
             cont++;
             limpiar();
-            $("#total").html("S/. " + total);
+            $("#total").html("$ " + total);
             $("#sale_total").val(total);
             evaluar();
             $('#detalles').append(fila);
@@ -52,7 +52,7 @@ function agregar()
 }
 function limpiar() {
     $("#pquantity").val("");
-    $("#discount").val("");
+    $("#pdiscount").val("");
     $("#psale_price").val("");
 }
 function evaluar() {
@@ -63,11 +63,11 @@ function evaluar() {
         $("#guardar").hide();
     }
 }
-function eliminar(index) {
+/*function eliminar(index) {
     total=total-subtotal[index];
-    $("#total").html("S/. " + total);
+    $("#total").html("$ " + total);
     $("#sale_total").val(total);
     $("#fila" + index ).remove();
     evaluar();
-
+*/
 }
