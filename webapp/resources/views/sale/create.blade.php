@@ -3,6 +3,9 @@
 @section('title', 'Nueva Venta ')
 @section('title-description', 'Administracion ')
 @section ('content')
+
+
+    <meta name="csrf-token" content="{!! Session::token() !!}">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <h3>Registro </h3>
@@ -176,6 +179,15 @@
                                             </table>
                                         </div>
                                     </div>
+                                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" id="guardar">
+                                        <div class="form-group">
+                                            <input name="_token" value="{{csrf_token()}}" type="hidden" >
+                                            <button  class="btn btn-primary" type="submit">Guardar</button>
+                                            <button class="btn btn-danger" type="reset">Cancelar</button>
+                                        </div>
+                                    </div>
+
+                                    <td><input type="number" name="quantity[]"  ></td>
                                 </section>
 
                             </div>
@@ -183,19 +195,14 @@
                         </div>
                     </div>
                 </div>
+
             </section>
-                    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                        <div class="form-group">
-                            {!! Form::submit('Click Me!', ['id' => 'guardar']) !!}
-                            <button class="btn btn-danger" type="reset">Cancelar</button>
-                        </div>
-                    </div>
            </div>
        </div>
 
              {{Form::close()}}
 </div>
 </div>
-    <script src="{{ asset('js/sale.js') }}"></script>
+
 
 @endsection

@@ -26,7 +26,7 @@ function agregar()
     discount = $("#pdiscount").val();
     sale_price = $("#psale_price").val();
     stock= $("#pstock").val();
-    if(id != "" && quantity != "" && quantity > 0  && discount != "" && sale_price!= "") {
+    if(idarticulo != "" && quantity != "" && quantity > 0  && discount != "" && sale_price!= "") {
         if (stock >= quantity) {
             subtotal[cont] = (quantity * sale_price - discount);
             total = total + subtotal[cont];
@@ -63,11 +63,11 @@ function evaluar() {
         $("#guardar").hide();
     }
 }
-/*function eliminar(index) {
+function eliminar(index) {
     total=total-subtotal[index];
     $("#total").html("$ " + total);
     $("#sale_total").val(total);
     $("#fila" + index ).remove();
     evaluar();
-*/
+
 }
