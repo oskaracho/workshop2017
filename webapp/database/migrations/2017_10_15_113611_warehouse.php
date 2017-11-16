@@ -20,7 +20,7 @@ class Warehouse extends Migration
             $table->string('branches');
             $table->integer('city');
             $table->string('address');
-            $table->integer('user');
+            $table->string('user');
             $table->timestamps();
 
         });
