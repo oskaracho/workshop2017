@@ -17,34 +17,35 @@
             @endif
 
             {{ Form::open (array('url'=>'article','method'=>'POST','autocomplete'=>'off'))}}
-             {{Form::token()}}
+            {{Form::token()}}
+
             <div class="form-group">
                 <label for="code">Codigo * </label>
-                <input type="number" name="code" class="form-control" placeholder="code">
+                <input type="number" name="code" class="form-control" value="{{ old('code') }}" placeholder="code">
             </div>
             <div class="form-group">
                 <label for="name">Nombre *</label>
-                <input type="text" name="name" class="form-control" placeholder="name">
+                <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="name">
             </div>
             <div class="form-group">
                 <label for="stock">Stock * </label>
-                <input type="number" name="stock" class="form-control" placeholder="stock">
+                <input type="number" name="stock" class="form-control" value="1" placeholder="stock">
             </div>
             <div class="form-group">
                 <label for="state">Estado * </label>
-                <input type="text" name="state" class="form-control" placeholder="state">
+                <input type="text" name="state" class="form-control" value="A" placeholder="state">
             </div>
             <div class="form-group">
                 <label for="sale_price">Precio Venta * </label>
-                <input type="number" name="sale_price" class="form-control" placeholder="sale_price">
+                <input type="number" name="sale_price" class="form-control" value="{{ old('sale_price') }}" placeholder="sale_price">
             </div>
             <div class="form-group">
                 <button href="" class="btn btn-primary" type="submit">Guardar</button>
                 <button class="btn btn-danger" type="reset">Cancelar</button>
             </div>
 
-             {{Form::close()}}
+            {{Form::close()}}
 
-</div>
-</div>
+        </div>
+    </div>
 @endsection

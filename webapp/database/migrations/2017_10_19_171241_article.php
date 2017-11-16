@@ -16,7 +16,7 @@ class Article extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('code')->unique();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->integer('stock');
             $table->string('state');
             $table->integer('sale_price');
