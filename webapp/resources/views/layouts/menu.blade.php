@@ -24,7 +24,7 @@
                 <i class="fa fa-home"></i> Catalogo  </a>
         </li>
         <li class="@yield('menu_warehouse','')">
-            <a href="warehouse">
+            <a href="/warehouse">
                 <i class="fa fa-th-large"></i> Almacenes
             </a>
 
