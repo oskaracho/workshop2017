@@ -5,7 +5,6 @@
 @section ('content')
 
 
-    <meta name="csrf-token" content="{!! Session::token() !!}">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <h3>Registro </h3>
@@ -187,8 +186,52 @@
                                         </div>
                                     </div>
 
-                                    <td><input type="number" name="quantity[]"  ></td>
                                 </section>
+
+                                <div class="card card-primary">
+                                    <div class="card-header">
+                                        <div class="header-block">
+                                            <p class="title"> Descripción del Producto </p>
+                                        </div>
+                                    </div>
+                                    <div class="card-block">
+
+                                        <div class="form-group row">
+
+                                            {!! Form::label('specifics', 'Caracterizticas del producto', ['class' => 'col-sm-2 col-form-label']); !!}
+                                            <div class="col-sm-10">
+                                                {!! Form::button('Añadir caracteriztica ', ['class' => 'btn btn-primary-outline',
+                                                'data-toggle' => 'modal',
+                                                'data-target' => '#specificsModal']); !!}
+                                                <div class="form-group"></div>
+                                                <div class="form-group row">
+                                                    <div id="xd">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            {{ Form::label('productdescription', 'Descripción del Producto', ['class' => 'col-sm-2 col-form-label']) }}
+
+                                            <div class="col-sm-10">
+                                                {{ Form::textarea('productdescription', '', ['class' => 'form-control', 'rows' => '3']) }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" id="guardar" name= "guardar" class="btn btn-primary">Guardar</button>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+
 
                             </div>
 
@@ -201,8 +244,53 @@
        </div>
 
              {{Form::close()}}
-</div>
+
+
+
+
+    <div class="modal fade" id="specificsModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <i class="fa fa-pencil"></i> Añadir caracteriztica</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Producto</label>
+                        <select class="selectpicker form-control" id="pro_id" name="pro_id" data-width='100%' >
+                            <option value="Lentes">Lentes</option>
+                            <option value="Casco">Casco</option>
+                            <option value="Gorra">Gorra</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="trait" aria-describedby="emailHelp">
+                        <small id="traitHelp" class="form-text text-muted">Por ejemplo: marca, material o año.</small>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="desc" aria-describedby="emailHelp">
+                        <small id="descHelp" class="form-text text-muted">Por ejemplo: Ty, Plastico o 2007</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn1">Guardar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+    </div>
 </div>
 
 
 @endsection
+<script src="{{ asset('js/sale.js') }}"></script>
+<script src="{{ asset('js/article.js') }}"></script>

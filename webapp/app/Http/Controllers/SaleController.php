@@ -35,6 +35,7 @@ class SaleController extends Controller
             $sales = DB::table('sales')
                 ->join('customers','sales.customer_id','=','customers.id')
                 ->select('sales.id','sales.date','customers.name','sales.voucher_type','sales.voucher_series','sales.voucher_num','sales.tax','sales.state','sales.sale_total')
+                ->where('state','=','A')
                 ->orderBy('sales.id','desc')
                 ->groupby('sales.id','sales.date','customers.name','sales.voucher_type','sales.voucher_series','sales.voucher_num','sales.tax','sales.state')
                 ->paginate(2);
@@ -60,7 +61,7 @@ class SaleController extends Controller
             ->get();
 
 
-        return view ("sale.create",["customers"=>$customers,"articles"=>$articles,"customers"=>$customers1]);
+        return view ("sale.venta",["customers"=>$customers,"articles"=>$articles,"customers"=>$customers1]);
 
     }
 
@@ -68,13 +69,13 @@ class SaleController extends Controller
     public function store(SaleFormRequest $request)
     {
         //
-            dd($request->all());
+            //dd($request);
       //  try {
             DB::beginTransaction();
             $sale = new Sale;
             $sale->customer_id = $request->id;
             $sale->voucher_type = $request->voucher_type;
-            $sale->voucher_series = $request->voucher_series;
+            $sale->voucher_series = '18';
             $sale->voucher_num = $request->voucher_num;
             $sale->sale_total = $request->sale_total;
             $mytime = Carbon::now('America/La_Paz');
@@ -83,7 +84,7 @@ class SaleController extends Controller
             $sale->state = 'A';
             $sale->save();
 
-            $article_id = $request->idarticulo;
+            $article_id = $request->article;
             $quantity = $request->quantity;
             $discount = $request->discount;
             $sale_price = $request->sale_price;
@@ -116,17 +117,18 @@ class SaleController extends Controller
      */
     public function show($id)
     {
-        $sale = DB::table('sales as s')
-            ->join('customers as c','s.customer_id','=','c.id')
-            ->join('saledetail as sd','s.id','=','sd.sale_id')
-            ->select('s.id','s.date','c.name','s.voucher_type','s.voucher_series','s.voucher_num','s.tax','s.state','s.sale_total')
-            ->where('s.id','=',$id)
+        $sale = DB::table('sales')
+            ->join('customers','sales.customer_id','=','customers.id')
+            ->join('saledetail','sales.id','=','saledetail.sale_id')
+            ->select('sales.id','sales.date','customers.name','sales.voucher_type','sales.voucher_series','sales.voucher_num','sales.tax','sales.state','sales.sale_total')
+            ->where('sales.id','=',$id)
             ->first();
-        $detail=DB::table('saledetail as sd')
-            ->join('articles as a','sd.sale_id','=','a.id')
-            ->select ('a.name as article','sd.quantity','sd.discount','sd.sale_price')
-            ->where('sd.sale_id','=',$id)
+        $detail=DB::table('saledetail')
+            ->join('articles','saledetail.article_id','=','articles.id')
+            ->select ('articles.name as article','saledetail.quantity','saledetail.discount','saledetail.sale_price')
+            ->where('saledetail.sale_id','=',$id)
             ->get();
+
         return view ("sale.show",["sale"=>$sale,"detail"=>$detail]);
 
     }
@@ -142,7 +144,7 @@ class SaleController extends Controller
     {
         //
         $sale =Sale::findOrFail($id);
-        $sale->State = 'C' ;
+        $sale->state = 'C' ;
         $sale->update();
         return redirect('sale');
     }

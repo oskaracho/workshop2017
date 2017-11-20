@@ -47,6 +47,8 @@
                         <tbody>
                         </tbody>
                     </table>
+                    {{$sales->render()}}
+
                 </div>
 
             </div>

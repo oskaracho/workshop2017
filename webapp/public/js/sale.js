@@ -9,19 +9,19 @@ $(document).ready(function(){
 var cont=0;
 total=0;
 subtotal=[];
-$("#guardar").hide();
-$("#pidarticulo").change(mostrarValores);
+
+$("#pro_id").change(mostrarValores);
 
 function mostrarValores(){
-    datosArticulo=document.getElementById('pidarticulo').value.split('_');
+    datosArticulo=document.getElementById('pro_id').value.split('_');
     $("#psale_price").val(datosArticulo[2]);
     $("#pstock").val(datosArticulo[1]);
 }
 function agregar()
 {
-    datosArticulo=document.getElementById('pidarticulo').value.split('_');
+    datosArticulo=document.getElementById('pro_id').value.split('_');
     idarticulo = datosArticulo[0];
-    article = $("#pidarticulo option:selected").text();
+    article = $("#pro_id option:selected").text();
     quantity = $("#pquantity").val();
     discount = $("#pdiscount").val();
     sale_price = $("#psale_price").val();
@@ -32,7 +32,7 @@ function agregar()
             total = total + subtotal[cont];
             var fila = '<tr class="selected" id="fila' + cont + '"><td><button type="button" class="btn btn-warning" onclick="eliminar(' + cont + ');">X</button> </td><td><input type="hidden" name="idarticulo[]" value="' + idarticulo + '">' + article + '</td><td><input type="number" name="quantity[]" value="' + quantity + '"></td><td><input type="number" name="sale_price[]" value="' + sale_price + '"></td><td><input type="number" name="discount[]" value="' + discount + '"></td><td>' + subtotal[cont] + '<td></tr>';
             cont++;
-            limpiar();
+
             $("#total").html("$ " + total);
             $("#sale_total").val(total);
             evaluar();
