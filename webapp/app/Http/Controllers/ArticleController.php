@@ -30,7 +30,7 @@ class ArticleController extends Controller
             $query=trim($request->searchText);
             $articles = DB::table('articles')->where('name','LIKE','%'.$query.'%')
                 ->orderBy('id','desc')
-                ->paginate(2);
+                ->paginate(5);
 
             return view ('article.index',["articles" =>$articles ,"searchText"=>$query]);
 

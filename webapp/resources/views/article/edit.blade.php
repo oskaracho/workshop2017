@@ -21,7 +21,7 @@
 
             <div class="form-group">
                 <label for="code">Codigo * </label>
-                <input type="text" name="code" class="form-control" value="{{$article->code}}" placeholder="code">
+                <input type="number" name="code" class="form-control" value="{{$article->code}}" placeholder="code">
             </div>
             <div class="form-group">
                 <label for="name">Nombre *</label>
@@ -29,16 +29,15 @@
             </div>
             <div class="form-group">
                 <label for="stock">Stock * </label>
-                <input type="text" name="stock" class="form-control" value="{{$article->stock}}" placeholder="stock">
+                <input type="number" name="stock" class="form-control" value="{{$article->stock}}" placeholder="stock">
             </div>
-
             <div class="form-group">
                 <label for="state">Estado * </label>
-                <input type="text" name="state" class="form-control" value="{{$article->state}}"placeholder="estado">
+                <input type="text" name="state" class="form-control" value="{{$article->state}}" placeholder="state">
             </div>
             <div class="form-group">
                 <label for="sale_price">Precio Venta * </label>
-                <input type="text" name="sale-price" class="form-control" value="{{$article->sale_price}}"placeholder="sale_price">
+                <input type="number" name="sale_price" class="form-control" value="{{$article->sale_price}}" placeholder="sale_price">
             </div>
             <div class="form-group">
                 <button href="" class="btn btn-primary" type="submit">Guardar</button>

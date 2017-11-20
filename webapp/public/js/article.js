@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(document).ready(function() {
 
     var aa =0;
@@ -27,3 +28,8 @@ $(document).ready(function() {
     });
 
 });
+=======
+/**
+ * Created by DIEGO ALEJANDRO on 15/11/2017.
+ */
+>>>>>>> 723e57fe6753c131c77a2106120924bd47d06584

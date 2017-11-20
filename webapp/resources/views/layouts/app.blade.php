@@ -30,7 +30,7 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                             <div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40')"> </div>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                             <span class="caret"></span>
+                                {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                         </a>
@@ -274,6 +274,8 @@
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/sale.js') }}"></script>
+<script src="{{ asset('js/validatorsWH.js') }}"></script>
+
 {{--<script type="text/javascript">
     alert(44444);
     $(document).ready(function(){
