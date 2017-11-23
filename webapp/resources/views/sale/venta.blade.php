@@ -364,14 +364,7 @@
                                     <div class="form-group">
                                         <label for="discount">Descuento</label>
                                         <input type="number"  id="pdiscount" class="form-control" placeholder="discount" >
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="trait" aria-describedby="emailHelp">
-                                        <small id="traitHelp" class="form-text text-muted">Por ejemplo: marca, material o año.</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="desc" aria-describedby="emailHelp">
-                                        <small id="descHelp" class="form-text text-muted">Por ejemplo: Ty, Plastico o 2007</small>
+                                        <small id="traitHelp" class="form-text text-muted">Descuento</small>
                                     </div>
                                     <div class="form-group">
                                         <button type="button"  id="bt_add" class="btn btn-primary" >Agregar</button>

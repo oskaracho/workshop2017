@@ -205,9 +205,18 @@
                                                 'data-target' => '#specificsModal']); !!}
                                                 <div class="form-group"></div>
                                                 <div class="form-group row">
-                                                    <div id="xd">
-
+                                                    <div class="col-md-12 col-md-push-3">
+                                                        .
                                                     </div>
+                                                    <div class="col-md-12 col-md-push-3">
+                                                        .
+                                                    </div>
+                                                    <div class="col-md-12 col-md-push-3">
+                                                        <div id="xd">
+
+                                                        </div>
+                                                    </div>
+
 
                                                 </div>
                                             </div>

@@ -69,7 +69,7 @@ class SaleController extends Controller
     public function store(SaleFormRequest $request)
     {
         //
-            //dd($request);
+           
       //  try {
             DB::beginTransaction();
             $sale = new Sale;
