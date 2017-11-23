@@ -36,6 +36,7 @@ Route::resource('/sale', 'SaleController')->middleware('auth');
 //Route::get('/sale/create', 'SaleController@create');
 //Route::get('/sale/customer/create', 'CustomerController@create')->middleware('auth');
 //Route::get('sale/{id}', 'SaleController@show');
+Route::resource('/dashboard', 'DashboardController')->middleware('auth');
 
 //Oliver
 Route::get('/product', 'ProductController@index');
