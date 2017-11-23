@@ -19,6 +19,10 @@
             <a href="sale">
                 <i class="fa fa-home"></i> Venta  </a>
         </li>
+        <li class="@yield('menu_report','')">
+            <a href="dashboard">
+                <i class="fa fa-home"></i> Dashword  </a>
+        </li>
         <li class="@yield('menu_catalog','')">
             <a href="index.html">
                 <i class="fa fa-home"></i> Catalogo  </a>

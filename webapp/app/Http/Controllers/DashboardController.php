@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Sale;
+use DB;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -13,7 +14,17 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        //,["providers" =>$providers ,"searchText"=>$query]
+
+        $sales = DB::table('sales')
+              ->where('state','=','A')
+              ->count();
+        $ingresos =DB::table('sales')
+            ->select(DB::raw('SUM(sale_total) as total_sales'))
+            ->get();
+
+
+        return view ('dashboard.index',["sales" => $sales, "ingresos" =>$ingresos]);
     }
 
     /**

@@ -63,12 +63,7 @@ class ProviderController extends Controller
         return View::make("provider.create")->with('provider', $provider);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(ProviderFormRequest $request)
     {
         //
