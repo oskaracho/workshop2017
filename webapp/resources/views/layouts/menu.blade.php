@@ -27,11 +27,25 @@
             <a href="index.html">
                 <i class="fa fa-home"></i> Catalogo  </a>
         </li>
-        <li class="@yield('menu_warehouse','')">
-            <a href="/warehouse">
-                <i class="fa fa-th-large"></i> Almacenes
-            </a>
+        {{--<li class="@yield('menu_warehouse','')">--}}
+            {{--<a href="">--}}
+                {{--<i class="fa fa-th-large"></i> Almacenes--}}
+            {{--</a>--}}
 
+        {{--</li>--}}
+        <li>
+            <a class="@yield('menu_warehouse','')">
+                <i class="fa fa-table"></i> Almacenes
+                <i class="fa arrow"></i>
+            </a>
+            <ul class="sidebar-nav collapse" style="">
+                <li>
+                    <a href="warehouse"> Administracion </a>
+                </li>
+                <li>
+                    <a href="list"> Listas </a>
+                </li>
+            </ul>
         </li>
 
        
