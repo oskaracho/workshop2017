@@ -34,12 +34,7 @@
                         <p>{{$sale->voucher_type}}</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                    <div class="form-group">
-                        <label for="">Serie Comprobante</label>
-                        <p>{{$sale->voucher_series}}</p>
-                    </div>
-                </div>
+
                 <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
                     <div class="form-group">
                         <label for="num_comprobante">Numero Comprobante</label>

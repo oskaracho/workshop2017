@@ -198,7 +198,7 @@
                             {{ Form::open(array('url'=>'sale','method'=>'POST','autocomplete'=>'off'))}}
 
                             <div class="row">
-                                <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                                <div class=" col-sm-12 col-md-12 col-xs-12">
                                     <div class="box-placeholder">
                                         <div class="form-group">
                                             <label for="customer">Cliente </label>
@@ -487,10 +487,7 @@
 <script src="js/app-template.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="{{ asset('js/main.js') }}"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 <script src="{{ asset('js/sale.js') }}"></script>
 <script src="{{ asset('js/article.js') }}"></script>
 </body>

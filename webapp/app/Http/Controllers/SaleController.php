@@ -38,7 +38,7 @@ class SaleController extends Controller
                 ->where('state','=','A')
                 ->orderBy('sales.id','desc')
                 ->groupby('sales.id','sales.date','customers.name','sales.voucher_type','sales.voucher_series','sales.voucher_num','sales.tax','sales.state')
-                ->paginate(2);
+                ->paginate(4);
 
             return view ('sale.index',["sales" =>$sales ]);
 
@@ -69,7 +69,7 @@ class SaleController extends Controller
     public function store(SaleFormRequest $request)
     {
         //
-           
+
       //  try {
             DB::beginTransaction();
             $sale = new Sale;
