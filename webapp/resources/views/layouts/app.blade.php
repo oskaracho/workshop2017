@@ -279,6 +279,7 @@
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/sale.js') }}"></script>
 <script src="{{ asset('js/validatorsWH.js') }}"></script>
+<script src="{{ asset('validacion.js') }}"></script>
 
 {{--<script type="text/javascript">
     alert(44444);

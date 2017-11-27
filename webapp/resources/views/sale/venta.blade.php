@@ -198,7 +198,7 @@
                             {{ Form::open(array('url'=>'sale','method'=>'POST','autocomplete'=>'off'))}}
 
                             <div class="row">
-                                <div class=" col-sm-12 col-md-12 col-xs-12">
+                                <div class=" col-sm-8 col-md-6 col-xs-12">
                                     <div class="box-placeholder">
                                         <div class="form-group">
                                             <label for="customer">Cliente </label>
@@ -208,7 +208,13 @@
                                                 @endforeach
                                             </select>
                                         </div>
+                                        <div class=" col-sm-12 col-md-12 col-xs-12">
+                                            <div id="mensaje"></div>
+                                        </div>
                                     </div>
+                                </div>
+                                <div class=" col-sm-12 col-md-12 col-xs-12">
+
                                 </div>
                                 <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
                                     <div class="box-placeholder">
@@ -490,6 +496,30 @@
 
 <script src="{{ asset('js/sale.js') }}"></script>
 <script src="{{ asset('js/article.js') }}"></script>
+<script>
+    $(document).ready(function() {
+
+        //alert(33);
+
+        $('#ale').click(function(){
+            var sel = $('#id').find(':selected').val();
+            if (sel){
+                $("#mensaje").append(" <span class='label label-primary'>Usuario Registrado</span>");
+            }
+            else{
+                $("#mensaje").append(" <label>Usuario No Registrado</label>");
+            }
+
+        });
+
+
+            /*
+             $("x").append("<input id='"+aa+"'  name='feature[]' class='form-control' type='text' readonly value='"+$('#trait').val()+"'>");
+             $("y").append("<input id='"+aa+"' name='desc[]' class='form-control' type='text' readonly value='"+$('#desc').val()+"'>");
+             $("z").append("<button id='btn2' data-id='"+aa+"' class='form-control'>Eliminar</button>");
+             aa++;*/
+        });
+</script>
 </body>
 </html>
 
