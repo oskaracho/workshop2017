@@ -48,5 +48,8 @@ Route::get('/product/dataTable', 'ProductController@indexDataTable');
 
 //oscar
 Route::resource('/warehouse', 'WarehouseController');
+Route::resource('/list', 'WarehouseListController');
+Route::get('lista_almacenes/{tipo}', 'PdfController@crear_reporte');
+Route::get('factura/{tipo}', 'PdfController@crear_factura');
 
 

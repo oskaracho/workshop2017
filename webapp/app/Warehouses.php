@@ -20,7 +20,28 @@ class Warehouses extends Model
     ];
 
     public function cities(){
-        return $this->hasMany(City::class);
+        return $this->belongsTo(City::class);
+    }
+
+    public static function everything(){
+        $warehouse=Warehouses::all();
+        $datos=array();
+        $c=0;
+        foreach ($warehouse as $sem) {
+            $par=User::find($sem->user);
+            $ci=City::find($sem->city);
+                $datos[$c]=array(
+                    'id'=>$sem->id,
+                    'name'=>$sem->name,
+                    'volumen'=>$sem->volumen,
+                    'branches'=>$sem->branches,
+                    'city'=>$ci->name,
+                    'address'=>$sem->address,
+                    'user'=>$par->name
+                );
+                $c++;
+            }
+            return $datos;
     }
 
 }

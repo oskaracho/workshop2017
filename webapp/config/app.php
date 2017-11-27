@@ -181,6 +181,11 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
+        /*
+         * DomPDF
+         */
+        Barryvdh\DomPDF\ServiceProvider::class,
+        //QR
     ],
 
     /*
@@ -231,7 +236,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-
+        //DomPDF
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+        //QR
     ],
 
 ];
