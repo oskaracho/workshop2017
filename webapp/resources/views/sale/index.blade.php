@@ -35,7 +35,7 @@
                                 <td>{{ $sale->name}}</td>
                                 <td>{{ $sale->voucher_type.':'.$sale->voucher_series.'-'.$sale->voucher_num}}</td>
                                 <td>{{ $sale->tax}}</td>
-                                <td>{{ $sale->sale_total}}</td>
+                                <td>$ {{ $sale->sale_total}}</td>
                                 <td>{{ $sale->state}}</td>
                                 <td>
                                     <a href="{{URL::action('SaleController@show',$sale->id)}}"><button class="btn btn-info">Detalles</button> </a>

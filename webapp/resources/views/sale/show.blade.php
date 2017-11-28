@@ -61,7 +61,7 @@
                             <th></th>
 
                             <th>
-                                <h4 >Bs.{{$sale->sale_total}}</h4>
+                                <h4 >$.{{$sale->sale_total}}</h4>
                             </th>
                             </tfoot>
                             <tbody>

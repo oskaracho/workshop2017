@@ -221,20 +221,23 @@
                                         <div class="form-group">
                                             <label>Tipo de Comprobante</label>
                                             <select name="voucher_type"  class="form-control">
-                                                <option value="Boleta">Boleta</option>
                                                 <option value="Factura">Factura</option>
-                                                <option value="Ticket">Ticket</option>
+                                                <option value="Boleta">Boleta</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+                                <div class="col-lg-6 col-sm-4 col-md-4 col-xs-12">
                                     <div class="form-group">
                                         <div class="box-placeholder">
                                             <div class="form-group">
+                                                {!! Form::label('voucher_num', 'Numero de Comprobante') !!}
+                                                {!! Form::number('voucher_num', null, ['class' => 'form-control','required' => 'required' ]) !!}
+                                            </div>
+                                          {{--  <div class="form-group">
                                                 <label for="voucher_num">Numero Comprobante </label>
                                                 <input type="text" name="voucher_num" value="{{old('voucher_num')}}" placeholder="">
-                                            </div>
+                                            </div>--}}
                                         </div>
                                     </div>
                                 </div>
@@ -281,10 +284,7 @@
                             <div class="form-group">
 
                             </div>
-                            <div class="form-group row">
-                                <div id="xd">
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 
@@ -321,6 +321,10 @@
                             <tbody>
                             </tbody>
                         </table>
+                        <div class="form-group ">
+                            <div id="xd">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <button type="submit" id="guardar"  class="btn btn-primary">Guardar</button>
 
@@ -357,7 +361,7 @@
 
                                     <div class="form-group">
                                         <label for="quantity">Cantidad </label>
-                                        <input type="number"  id="pquantity" class="form-control" placeholder="quantity" >
+                                        <input type="number" name="pquantity" id="pquantity" class="form-control" placeholder="quantity" >
                                     </div>
                                     <div class="form-group">
                                         <label for="stock">Stock </label>
@@ -368,7 +372,7 @@
                                         <input type="number"  disabled name="psale_price" id="psale_price" class="form-control"  aria-describedby="emailHelp" >
                                     </div>
                                     <div class="form-group">
-                                        <label for="discount">Descuento</label>
+                                        <label for="discount">Descuento (%)</label>
                                         <input type="number"  id="pdiscount" class="form-control" placeholder="discount" >
                                         <small id="traitHelp" class="form-text text-muted">Descuento</small>
                                     </div>
@@ -501,7 +505,7 @@
 
         //alert(33);
 
-        $('#ale').click(function(){
+
             var sel = $('#id').find(':selected').val();
             if (sel){
                 $("#mensaje").append(" <span class='label label-primary'>Usuario Registrado</span>");
@@ -510,7 +514,7 @@
                 $("#mensaje").append(" <label>Usuario No Registrado</label>");
             }
 
-        });
+
 
 
             /*

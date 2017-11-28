@@ -25,6 +25,17 @@ class SaleFormRequest extends FormRequest
     {
         return [
             //
+            'id'=> 'required',
+            'voucher_num'=>'required|min:7',
+        ];
+
+    }
+    public function messages()
+    {
+        return[
+            'id.required'=>'Se requiere un registrar al Cliente' ,
+            'voucher_num.min'=>'Numero de Comprobante Erroneo ' ,
         ];
     }
+
 }
