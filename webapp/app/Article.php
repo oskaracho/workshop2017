@@ -16,10 +16,13 @@ class Article extends Model
 
     protected $fillable = [
 
+        'codePro',
         'code',
         'name',
+        'warehouse_id',
         'stock',
         'state',
         'sale_price'
     ];
+
 }

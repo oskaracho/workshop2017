@@ -24,6 +24,7 @@ class ArticleFormRequest extends FormRequest
     public function rules()
     {
         return [
+            'warehouse_id'=> 'required|numeric|min:1',
             'code'=> 'required|numeric|min:4',
             'name'=> 'required|min:4',
             'stock'=> 'required|numeric|min:0',
@@ -35,6 +36,7 @@ class ArticleFormRequest extends FormRequest
     public function messages()
     {
         return[
+            'warehouse.min' =>'El valor del Codigo de Producto debe tener 4 numeros',
             'code.min' =>'El valor del Codigo debe tener 4 numeros',
             'code.numeric' =>'El valor del Codigo debe ser un numero',
             'name.min' =>'El Nombre del Producto no debe ser corto',
