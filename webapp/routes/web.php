@@ -39,7 +39,7 @@ Route::get('/sale/customer/create', 'CustomerController@create')->middleware('au
 Route::resource('/dashboard', 'DashboardController')->middleware('auth');
 
 //Oliver
-Route::get('/product', 'ProductController@index');
+Route::resource('/product', 'ProductController');
 Route::get('/product/dataTable', 'ProductController@indexDataTable');
 
 //Auth::routes();
