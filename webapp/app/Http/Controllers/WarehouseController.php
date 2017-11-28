@@ -135,5 +135,9 @@ class WarehouseController extends Controller
         return redirect()->route('warehouse.index')->with('success',$warehouse->name.' FUE ELIMINADO');
     }
 
+    public static function warehouseList() {
+        $warehouse = Warehouses::all();
+        return $warehouse;
+    }
 
 }

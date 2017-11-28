@@ -14,13 +14,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('product.index');
+        //return view('product.index');
+        $productos = Product::latest()->paginate(5);
+        return view('product.index',compact('productos'))
+            ->with('i',(request()->input('page',1)-1)*5);
     }
 
     public function indexDataTable()
     {
         $productList = Product::all();
         return response()->json($productList);
+
     }
 
     /**
@@ -28,9 +32,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        return view ('product.create');
+
+
     }
 
     /**
@@ -41,7 +48,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate fields
+        $product = new Product;
+        $product->product_name = $request->product_name;
+        $product->product_description = $request->product_description;
+        $product->product_date_up = date("Y-m-d");
+        $product->product_date_down = date("Y-m-d");
+        $product->created_at = date("Y-m-d");
+        $product->updated_at = date("Y-m-d");
+        $product->code = $request->code;
+
+        $product->save();
+
+        // Warehouses::create($request->all());
+        return redirect()->route('product.index')
+            ->with('success','"'.$request->product_name.'"'.' FUE REGISTRADO CORRECTAMENTE');
     }
 
     /**
@@ -63,8 +84,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+        $product=Product::find($id);
+        return view('product.edit',compact('product'));    }
 
     /**
      * Update the specified resource in storage.
@@ -75,8 +96,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        Product::find($id)->update($request->all());
+        return redirect()->route('product.index')
+            ->with('success','"'.$request->product_name.'"'.' FUE EDITADO CORRECTAMENTE');    }
 
     /**
      * Remove the specified resource from storage.
@@ -86,6 +108,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product=Product::find($id);
+        $product->delete();
+        return redirect()->route('product.index')->with('success',$product->product_name.' FUE ELIMINADO');
     }
+
 }

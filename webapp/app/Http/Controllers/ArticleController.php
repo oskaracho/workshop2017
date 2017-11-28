@@ -31,9 +31,7 @@ class ArticleController extends Controller
             $articles = DB::table('articles')->where('name','LIKE','%'.$query.'%')
                 ->orderBy('id','desc')
                 ->paginate(5);
-
             return view ('article.index',["articles" =>$articles ,"searchText"=>$query]);
-
         }
 
     }
@@ -48,7 +46,13 @@ class ArticleController extends Controller
     public function create(Request $request)
     {
         //
-        return view("article.create");
+
+            $product = DB::table('products')
+                ->where('code', '=', $request->codePro)
+                ->get();
+
+
+        return view ("article.create",["product"=>$product]);
     }
 
 
@@ -56,8 +60,10 @@ class ArticleController extends Controller
     {
         //
         $article = new Article;
-        $article -> code = $request -> code;
         $article -> name = $request -> name;
+        $article -> code = $request -> code;
+        $article -> product_id = $request -> product_id;
+        $article -> warehouse_id = $request -> warehouse_id;
         $article -> stock = $request -> stock;
         $article -> state = $request -> state;
         $article -> sale_price = $request -> sale_price;
@@ -102,11 +108,14 @@ class ArticleController extends Controller
     {
         //
         $article = Article::findOrFail($id);
-        $article -> code = $request -> code;
         $article -> name = $request -> name;
+        $article -> code = $request -> code;
+        $article -> product_id = $request -> product_id;
+        $article -> warehouse_id = $request -> warehouse_id;
         $article -> stock = $request -> stock;
         $article -> state = $request -> state;
         $article -> sale_price = $request -> sale_price;
+        $article -> warehouse_id = $request -> warehouse;
         $article -> update();
         return redirect('article');
 

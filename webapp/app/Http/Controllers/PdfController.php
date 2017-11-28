@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
+use App\City;
 use Illuminate\Http\Request;
 use App\Warehouses;
 use App\Sale;
@@ -26,9 +28,29 @@ class PdfController extends Controller
     public function crear_reporte($tipo){
 
         $vistaurl="warehouse/pdfView";
-        $warehouse=Warehouses::all();
 
-        return $this->crearPDF($warehouse, $vistaurl,$tipo);
+        $warehouses=Warehouses::latest()->paginate(5);
+        $warehouse=array();
+        $c=0;
+        foreach ($warehouses as $sem) {
+            $par=Article::where('warehouse_id', $sem->id)->first();
+            $city=City::where('id', $sem->city)->first();
+            if($par){$stock=$par->stock;}else{$stock=0;}
+            $warehouse[$c]=array(
+                'id'=>$sem->id,
+                'name'=>$sem->name,
+                'volumen'=>$sem->volumen,
+                'branches'=>$sem->branches,
+                'city'=>$sem->city,
+                'address'=>$sem->address,
+                'user'=>$sem->user,
+                'stock'=>$stock,
+                'city'=>$city->name
+            );
+            $c++;
+        }
+
+        return $this->crearPDF($warehouse, $vistaurl,1);
 
     }
     public function crear_factura($tipo){
