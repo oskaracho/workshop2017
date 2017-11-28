@@ -47,6 +47,10 @@
                 </li>
             </ul>
         </li>
+        <li class="@yield('menu_catalog','')">
+            <a href="product">
+                <i class="fa fa-home"></i> Productos  </a>
+        </li>
 
        
     </ul>

@@ -17,8 +17,8 @@ $Total=0;
 <body>
 <table cellspacing="0" cellpadding="2" border="0">
     <tr>
-        <td width="150"><img src="/maxresdefault.jpg" alt=""></td>
-        <td width="200"><h1 >FACTURA</h1></td>
+        <td width="180"><img src="/maxresdefault.jpg" alt=""></td>
+        <td width="180"><h1 >FACTURA</h1></td>
         <td width="200"><strong>NIT: </strong> 123222113 <br /><strong>N° FACTURA:</strong>  {{$warehouse[0]->voucher_num}}<br /> <strong>N° AUTORIZACION: </strong> 23433333 <br><b>ORIGINAL</b></td>
     </tr>
 
@@ -39,19 +39,21 @@ $Total=0;
         <td align="center" width="250"><b>DESCRIPCION</b></td>
         <td align="center" width="40"><b>PRECIO (BS)</b></td>
         <td align="center" width="40"><b>CANTIDAD</b></td>
+        <td align="center" width="40"><b>DESCUENTO(BS)</b></td>
         <td align="center" width="40"><b>MONTO (BS)</b></td>
     </tr>
     @for ($i=0; $i<count($warehouse);$i++)
-    <tr border="0">
+    <tr border="0" >
         <td > {{$warehouse[$i]->na_Pro}}</td>
-        <td > {{$warehouse[$i]->sale_price}}</td>
-        <td > {{$warehouse[$i]->quantity}}</td>
-        <td > {{$Total1=$warehouse[$i]->sale_price*$warehouse[$i]->quantity}}</td>
+        <td align="right"> {{$warehouse[$i]->sale_price}}</td>
+        <td align="right"> {{$warehouse[$i]->quantity}}</td>
+        <td align="right"> {{$warehouse[$i]->discount}}</td>
+        <td align="right"> {{$Total1=($warehouse[$i]->sale_price*$warehouse[$i]->quantity)-$warehouse[$i]->discount}}</td>
         <?php $Total=$Total+$Total1; ?>
     </tr>
     @endfor
     <tr>
-        <td colspan="2">Son:{{$letras = NumeroALetras::convertir($Total)}} /100 Bolivianos.</td>
+        <td colspan="3">Son:{{$letras = NumeroALetras::convertir($Total)}} /100 Bolivianos.</td>
         <td width="20" align="center" style="background-color:#000000; color:#ffffff;"><b>TOTAL (BS)</b></td>
         <td width="20">{{$Total}}</td>
     </tr>

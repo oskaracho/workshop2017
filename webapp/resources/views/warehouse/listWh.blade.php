@@ -1,3 +1,4 @@
+{{--{{dump($warehouse)}}--}}
 @extends('layouts.app')
 
 @section('list_warehouse', 'open active')
@@ -33,6 +34,7 @@
                     <th><input type="text" class="form-control" placeholder="SUCURSAL" style="width: 130px;" disabled></th>
                     <th><input type="text" class="form-control" placeholder="CIUDAD" style="width: 130px;" disabled></th>
                     <th><input type="text" class="form-control" placeholder="DIRECCION" style="width: 130px;" disabled></th>
+                    {{--<th><input type="text" class="form-control" placeholder="STOCK" style="width: 130px;" disabled></th>--}}
                     {{--<th><input type="text" class="form-control" placeholder="RESPONSABLE" style="width: 180px;" disabled></th>--}}
                     <th><button class="btn btn-info btn-xs btn-filter" style="color:#ffffff"><span class="glyphicon glyphicon-filter"></span> Buscar</button>
                     </th>
@@ -55,7 +57,9 @@
                         <td>{{ $warehouses->branches }}</td>
                         <td>{{ $city }}</td>
                         <td>{{ $warehouses->address }}</td>
+                        {{--<td>{{ $warehouses->stock }}</td>--}}
 {{--                        <td>{{ $warehouses->user }}</td>--}}
+                        <td><a href="../lista_almacenes/{{$warehouses->id}}" class="btn btn-warning" style="color:#ffffff">PDF</a></td>
 
                     </tr>
                 @endforeach
@@ -82,7 +86,6 @@
                 {{--@endfor--}}
                 </tbody>
             </table>
-            {!! $warehouse->links() !!}
 
         </div>
     </div>

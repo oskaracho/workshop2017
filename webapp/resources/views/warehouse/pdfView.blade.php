@@ -37,28 +37,23 @@ $Total=0;
                     <th>SUCURSAL</th>
                     <th>CIUDAD</th>
                     <th>DIRECCION</th>
+                    <th>STOCK</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($warehouse as $warehouses)
-                    <?php
-                    $city="";
-                    if($warehouses->city==1){$city="La Paz";}
-                    else if($warehouses->city==2){$city="Cochabamba";}
-                    else if($warehouses->city==3){$city="Santa Cruz";}
-                    else if($warehouses->city==4){$city="Tarija";}
+                @for ($i=0; $i<count($warehouse);$i++)
 
-                    ?>
-                    <tr>
-                        <td>{{++$i}}</td>
-                        <td>{{ $warehouses->name }}</td>
-                        <td>{{ $warehouses->volumen }}</td>
-                        <td>{{ $warehouses->branches }}</td>
-                        <td>{{ $city }}</td>
-                        <td>{{ $warehouses->address }}</td>
+                <tr>
+                <td>{{$i+1}}</td>
+                <td>{{ $warehouse[$i]['name'] }}</td>
+                <td>{{ $warehouse[$i]['volumen'] }}</td>
+                <td>{{ $warehouse[$i]['branches'] }}</td>
+                <td>{{ $warehouse[$i]['city'] }}</td>
+                <td>{{ $warehouse[$i]['address'] }}</td>
+                <td>{{ $warehouse[$i]['stock'] }}</td>
 
-                    </tr>
-                @endforeach
+                </tr>
+                @endfor
                 </tbody>
             </table>
 </body>
