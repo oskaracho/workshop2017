@@ -28,7 +28,7 @@ $Total=0;
     </tr>
 </table>
 <br>
-            <table cellspacing="1" cellpadding="5" border="1" align="center">
+            <table cellspacing="0" cellpadding="6" border="2" align="center">
                 <thead>
                 <tr>
                     <th>No</th>

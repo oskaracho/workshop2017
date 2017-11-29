@@ -5,8 +5,13 @@ $separa4 = explode("-",$fechaqr[0],4);
 $ano_fac3 = $separa4[0];
 $mes_fac3 = $separa4[1];
 $dia_fac3 = $separa4[2];
+$separa5 = $dia_fac3.'/'.$mes_fac3.'/'.$ano_fac3;
 $meses = array ("","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiempre","Octubre","Noviembre","Diciembre");
 $Total=0;
+
+$date = date_create($warehouse[0]->created_at);
+date_add($date, date_interval_create_from_date_string('60 days'));
+
 ?>
 <html>
 <head>
@@ -19,7 +24,7 @@ $Total=0;
     <tr>
         <td width="180"><img src="/maxresdefault.jpg" alt=""></td>
         <td width="180"><h1 >FACTURA</h1></td>
-        <td width="200"><strong>NIT: </strong> 123222113 <br /><strong>N° FACTURA:</strong>  {{$warehouse[0]->voucher_num}}<br /> <strong>N° AUTORIZACION: </strong> 23433333 <br><b>ORIGINAL</b></td>
+        <td width="200"><strong>NIT: </strong> 123222113 <br /><strong>N° FACTURA:</strong>  {{$warehouse[0]->voucher_num}}<br /> <strong>N° AUTORIZACION: </strong> 7904006306693 <br><b>ORIGINAL</b></td>
     </tr>
 
 </table>
@@ -34,13 +39,13 @@ $Total=0;
     </tr>
 
 </table>
-<table cellspacing="0" cellpadding="5" border="1">
+<table cellspacing="0" cellpadding="5" border="1" >
     <tr style="background-color:#000000; color:#ffffff;">
-        <td align="center" width="250"><b>DESCRIPCION</b></td>
-        <td align="center" width="40"><b>PRECIO (BS)</b></td>
-        <td align="center" width="40"><b>CANTIDAD</b></td>
-        <td align="center" width="40"><b>DESCUENTO(BS)</b></td>
-        <td align="center" width="40"><b>MONTO (BS)</b></td>
+        <th align="center" width="250"><b>DESCRIPCION</b></th>
+        <th align="center" width="40"><b>PRECIO (BS)</b></th>
+        <th align="center" width="40"><b>CANTIDAD</b></th>
+        <th align="center" width="40"><b>DESCUENTO(BS)</b></th>
+        <th align="center" width="40"><b>MONTO (BS)</b></th>
     </tr>
     @for ($i=0; $i<count($warehouse);$i++)
     <tr border="0" >
@@ -61,10 +66,12 @@ $Total=0;
 </table>
 <table cellspacing="0" cellpadding="1" border="0">
     <tr>
-        <td>Código de Control: </td>
+        <td>Código de Control: {{$warehouse[0]->number}} </td>
     </tr>
     <tr>
-        <td >Fecha Límite de Emisión: </td>
+        <td >Fecha Límite de Emisión: {{date_format($date, 'd-m-Y')}}</td>
+        <td><img width="80" height="80" src="https://api.qrserver.com/v1/create-qr-code/?data=123222113|{{$warehouse[0]->id}}|{{$warehouse[0]->num_auto}}|{{$separa5}}|{{$Total}}|{{$Total}}|{{$warehouse[0]->number}}|{{$warehouse[0]->voucher_num}}|0.00|0.00|0.00|0.00"/>
+        </td>
     </tr>
     <br>
     <br>
@@ -75,10 +82,8 @@ $Total=0;
         <td align="center" style="font-size:smaller">Ley N°453: “El proveedor debe brindar atención sin discriminación, con respeto, calidez y cordialidad a los usuarios y consumidores” </td>
     </tr>
 </table>
-<div class="visible-print text-center">
-    {{--{!! QrCode::size(250)->color(150,90,10)->backgroundColor(10,14,244)->generate('Make me a QrCode!'); !!}--}}
-    <p>Scan me to return to the original page.</p>
-</div>
+
+
 </body>
 </html>
 

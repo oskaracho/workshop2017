@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ControlCode;
 use App\Customer;
 use Illuminate\Http\Request;
 
@@ -69,13 +70,22 @@ class SaleController extends Controller
     public function store(SaleFormRequest $request)
     {
         //
-
+        $controlCode = new ControlCode();
+        $code = $controlCode->generate(7904006306693,//
+            $request->id,//
+            $request->voucher_num,//
+            str_replace('-','',date("Y-m-d")),//
+            $request->sale_total,//
+            'zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS'
+        );
       //  try {
             DB::beginTransaction();
             $sale = new Sale;
             $sale->customer_id = $request->id;
             $sale->voucher_type = $request->voucher_type;
             $sale->voucher_series = '18';
+            $sale->number = $code;
+            $sale->num_auto = 7904006306693;
             $sale->voucher_num = $request->voucher_num;
             $sale->sale_total = $request->sale_total;
             $mytime = Carbon::now('America/La_Paz');
@@ -96,7 +106,7 @@ class SaleController extends Controller
                 $detail->article_id = $article_id[$cont];
                 $detail->quantity = $quantity[$cont];
                 $detail->discount = $discount[$cont];
-                $detail->sale_price = $sale_price[$cont];
+                $detail->sale_price = 100;
                 $detail->save();
                 $cont = $cont + 1;
             }

@@ -5,7 +5,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <label for=""> Nombre <strong style="color: #c82333">*</strong></label>
-            {!! Form::text('product_name',null, array('placeholder' => 'Nombre','class' => 'form-control','onkeypress'=>'return soloLetrasNumeros(event)','maxlength'=>'20')) !!}
+            {!! Form::text('product_name',null, array('placeholder' => 'Nombre','class' => 'form-control','onkeypress'=>'return soloLetrasNumeros(event)','maxlength'=>'60')) !!}
             <label for=""> Codigo <strong style="color: #c82333">*</strong></label>
             {!! Form::text('code',null, array('placeholder' => 'Codigo','class' => 'form-control','onkeypress'=>'return soloNumeros(event)','maxlength'=>'20')) !!}
             <label for=""> Descripcion <strong style="color: #c82333">*</strong></label>

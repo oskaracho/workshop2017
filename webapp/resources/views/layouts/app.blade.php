@@ -15,7 +15,6 @@
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script>
-
 </head>
 <body>
 <div class="main-wrapper">

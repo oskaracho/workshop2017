@@ -59,7 +59,7 @@
                         <td>{{ $warehouses->address }}</td>
                         {{--<td>{{ $warehouses->stock }}</td>--}}
 {{--                        <td>{{ $warehouses->user }}</td>--}}
-                        <td><a href="../lista_almacenes/{{$warehouses->id}}" class="btn btn-warning" style="color:#ffffff">PDF</a></td>
+                        <td><a href="../lista_alprod/{{$warehouses->id}}" class="btn btn-warning" style="color:#ffffff">PDF</a></td>
 
                     </tr>
                 @endforeach

@@ -50,6 +50,7 @@ Route::get('/product/dataTable', 'ProductController@indexDataTable');
 Route::resource('/warehouse', 'WarehouseController');
 Route::resource('/list', 'WarehouseListController');
 Route::get('lista_almacenes/{tipo}', 'PdfController@crear_reporte');
+Route::get('lista_alprod/{tipo}', 'PdfController@reporte_xalmacen');
 Route::get('factura/{tipo}', 'PdfController@crear_factura');
 
 
