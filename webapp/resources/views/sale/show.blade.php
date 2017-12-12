@@ -71,7 +71,7 @@
                                     <td>{{$det->quantity}}</td>
                                     <td>{{$det->sale_price}}</td>
                                     <td>{{$det->discount}}</td>
-                                    <td>{{$det->quantity * $det->sale_price - $det->discount}}</td>
+                                    <td>{{(($det->quantity * $det->sale_price) - (($det->quantity * $det->sale_price)*($det->discount / 100)))}}<td>
                                 </tr>
                             @endforeach
                             </tbody>

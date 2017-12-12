@@ -38,7 +38,7 @@
                                 <td>$ {{ $sale->sale_total}}</td>
                                 <td>{{ $sale->state}}</td>
                                 <td>
-                                    <a href="{{URL::action('SaleController@show',$sale->id)}}"><button class="btn btn-info">Detalles</button> </a>
+                                    <a href="{{URL::action('SaleController@show',$sale->id)}}"><button class="btn btn-info">Ver Factura</button> </a>
                                     <a href="" data-target="#modal-delete-{{$sale->id}}" data-toggle="modal"><button class="btn btn-danger">Anular</button></a>
                                 </td>
                                 @include('sale.modal')

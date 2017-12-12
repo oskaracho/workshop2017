@@ -7,6 +7,7 @@ $(document).ready(function(){
 });
 
 var cont=0;
+var z=1;
 total=0;
 subtotal=[];
 
@@ -26,12 +27,13 @@ function agregar()
     discount = $("#pdiscount").val();
     sale_price = $("#psale_price").val();
     stock= $("#pstock").val();
-    if(idarticulo != "" && stock !="" && quantity != "" && quantity > 0  && discount != "" && sale_price!= "") {
+    if(idarticulo != "" && stock !="" && quantity != "" && quantity > 0  && discount != "" && discount<=80 && sale_price!= "") {
         if (stock >= quantity) {
             subtotal[cont] = ((quantity * sale_price) - ((quantity * sale_price)*(discount / 100)));
             total = total + subtotal[cont];
-            var fila = '<tr class="selected" id="fila' + cont + '"><td><button type="button" class="btn btn-warning" onclick="eliminar(' + cont + ');">X</button> </td><td><input type="hidden" name="idarticulo[]" value="' + idarticulo + '">' + article + '</td><td><input type="number" disabled name="quantity[]" value="' + quantity + '"></td><td><input type="number" disabled name="sale_price[]" value="' + sale_price + '"></td><td><input type="number" disabled name="discount[]" value="' + discount + '"></td><td>' + subtotal[cont] + '<td></tr>';
+            var fila = '<tr class="selected" id="fila' + cont + '"><td><button type="button" class="btn btn-warning" onclick="eliminar(' + cont + ');">"'+ z +'"</button> </td><td><input type="hidden" name="idarticulo[]" value="' + idarticulo + '">' + article + '</td><td><input type="number" disabled name="quantity[]" value="' + quantity + '"></td><td><input type="number" disabled name="sale_price[]" value="' + sale_price + '"></td><td><input type="number" disabled name="discount[]" value="' + discount + '"></td><td>' + subtotal[cont] + '<td></tr>';
             cont++;
+            z++;
 
             $("#total").html("$ " + total);
             $("#sale_total").val(total);

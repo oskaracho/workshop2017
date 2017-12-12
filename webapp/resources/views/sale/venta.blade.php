@@ -284,7 +284,11 @@
                             <div class="form-group">
 
                             </div>
-
+                            <div class="form-group">
+                                {{--<p>Eliminar de la Compra</p>--}}
+                                <div id="xd">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -321,10 +325,6 @@
                             <tbody>
                             </tbody>
                         </table>
-                        <div class="form-group ">
-                            <div id="xd">
-                            </div>
-                        </div>
                         <div class="form-group">
                             <button type="submit" id="guardar"  class="btn btn-primary">Guardar</button>
 
