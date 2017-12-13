@@ -23,8 +23,14 @@ class DashboardController extends Controller
             ->select(DB::raw('SUM(sale_total) as total_sales'))
             ->get();
 
+        $saledetail = DB::table('saledetail')
+            ->join('articles','saledetail.article_id','=','articles.id')
+            -> select (DB::raw('count(*) as total_ventas, articles.name'))
+            ->Groupby ('articles.name')
+            ->get();
 
-        return view ('dashboard.index',["sales" => $sales, "ingresos" =>$ingresos]);
+
+        return view ('dashboard.index',["sales" => $sales, "ingresos" =>$ingresos,"saledetail" => $saledetail]);
     }
 
     /**

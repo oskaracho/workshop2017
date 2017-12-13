@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use App\ControlCode;
 use App\Customer;
 use Illuminate\Http\Request;
@@ -69,7 +70,7 @@ class SaleController extends Controller
 
     public function store(SaleFormRequest $request)
     {
-        //
+        /*
         $controlCode = new ControlCode();
         $code = $controlCode->generate(7904006306693,//
             $request->id,//
@@ -77,15 +78,14 @@ class SaleController extends Controller
             str_replace('-','',date("Y-m-d")),//
             $request->sale_total,//
             'zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS'
-        );
-      //  try {
+        )*/
+        //dd($request);
+        //try {
             DB::beginTransaction();
             $sale = new Sale;
             $sale->customer_id = $request->id;
             $sale->voucher_type = $request->voucher_type;
             $sale->voucher_series = '18';
-            $sale->number = $code;
-            $sale->num_auto = 7904006306693;
             $sale->voucher_num = $request->voucher_num;
             $sale->sale_total = $request->sale_total;
             $mytime = Carbon::now('America/La_Paz');
@@ -98,6 +98,7 @@ class SaleController extends Controller
             $quantity = $request->quantity;
             $discount = $request->discount;
             $sale_price = $request->sale_price;
+            $stock = $request->stock;
 
             $cont = 0;
             while ($cont < count($article_id)) {
@@ -106,13 +107,16 @@ class SaleController extends Controller
                 $detail->article_id = $article_id[$cont];
                 $detail->quantity = $quantity[$cont];
                 $detail->discount = $discount[$cont];
-                $detail->sale_price = 100;
+                $detail->sale_price = $sale_price[$cont];
                 $detail->save();
+                $articulo =Article::findOrFail($article_id[$cont]);
+                $articulo->stock = (($stock[$cont])-($quantity[$cont]));
+                $articulo->update();
                 $cont = $cont + 1;
             }
 
             DB::commit();
-        //}catch(\Exception $e)
+       // }catch(\Exception $e)
         //{
           //  DB::rollback();
         //}
