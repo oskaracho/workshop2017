@@ -25,7 +25,7 @@ class DashboardController extends Controller
 
         $saledetail = DB::table('saledetail')
             ->join('articles','saledetail.article_id','=','articles.id')
-            -> select (DB::raw('count(*) as total_ventas, articles.name'))
+            -> select (DB::raw('articles.name,count(*) as total_ventas'))
             ->Groupby ('articles.name')
             ->get();
 

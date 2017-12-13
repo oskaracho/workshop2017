@@ -12,9 +12,12 @@
     <link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
     <!-- Theme initialization -->
     <link rel="stylesheet" id="theme-style" href="{{ asset('css/app.css') }}">
+    <script type="text/javascript" src={{ asset('https://www.gstatic.com/charts/loader.js')}}></script>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+
 </head>
 <body>
 <div class="main-wrapper">
@@ -279,6 +282,7 @@
 <script src="{{ asset('js/sale.js') }}"></script>
 <script src="{{ asset('js/validatorsWH.js') }}"></script>
 <script src="{{ asset('validacion.js') }}"></script>
+
 
 {{--<script type="text/javascript">
     alert(44444);
