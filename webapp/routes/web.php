@@ -52,5 +52,6 @@ Route::resource('/list', 'WarehouseListController');
 Route::get('lista_almacenes/{tipo}', 'PdfController@crear_reporte');
 Route::get('lista_alprod/{tipo}', 'PdfController@reporte_xalmacen');
 Route::get('factura/{tipo}', 'PdfController@crear_factura');
+Route::get('pp/{tipo}', 'PdfController@crear_peps');
 
 

@@ -96,4 +96,18 @@ class PdfController extends Controller
         return $this->crearPDF($sale, $vistaurl,1);
 
     }
+    public function crear_peps($tipo){
+
+        $vistaurl="Peps_inv";
+        $sale=DB::table('sales')
+            ->join('customers', 'sales.customer_id', '=', 'customers.id')
+            ->join('saledetail', 'sales.id', '=', 'saledetail.sale_id')
+            ->join('articles', 'articles.id', '=', 'saledetail.article_id')
+            ->select('sales.*','customers.*','saledetail.*','articles.sale_price','articles.name as na_Pro')
+            ->get();
+
+        return view('Peps_inv');
+
+    }
+
 }
