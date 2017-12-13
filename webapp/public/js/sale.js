@@ -30,7 +30,7 @@ function agregar()
     sale_price = $("#psale_price").val();
     stock= $("#pstock").val();
     if(flag == idarticulo){
-     alert('El producto a vender es erroneo ');
+     alert('El producto a vender es erroneo (Duplicacion) ');
     }
     else {
 
