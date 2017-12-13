@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Sale;
 use DB;
 use Illuminate\Http\Request;
+Use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -28,9 +29,15 @@ class DashboardController extends Controller
             -> select (DB::raw('articles.name,count(*) as total_ventas'))
             ->Groupby ('articles.name')
             ->get();
+        $products = DB::table('saledetail')
+            ->join('articles','saledetail.article_id','=','articles.id')
+            ->join('sales','saledetail.sale_id','=','sales.id')
+            -> select (DB::raw('articles.name,count(*) as total_ventas'))
+            ->groupBy(DB::raw('EXTRACT(MONTH FROM sales.date) ,articles.name'))
+            ->get();
 
 
-        return view ('dashboard.index',["sales" => $sales, "ingresos" =>$ingresos,"saledetail" => $saledetail]);
+        return view ('dashboard.index',["sales" => $sales, "ingresos" =>$ingresos,"saledetail" => $saledetail,"products"=>$products]);
     }
 
     /**
