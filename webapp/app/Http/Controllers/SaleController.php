@@ -70,7 +70,7 @@ class SaleController extends Controller
 
     public function store(SaleFormRequest $request)
     {
-        /*
+
         $controlCode = new ControlCode();
         $code = $controlCode->generate(7904006306693,//
             $request->id,//
@@ -78,8 +78,8 @@ class SaleController extends Controller
             str_replace('-','',date("Y-m-d")),//
             $request->sale_total,//
             'zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS'
-        )*/
-        //dd($request);
+        );
+        dd($request);
         //try {
             DB::beginTransaction();
             $sale = new Sale;

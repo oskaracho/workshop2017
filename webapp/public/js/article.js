@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     var aa =0;
+    var ee =1;
 
     $("#btn1").click(function(){
 
@@ -12,8 +13,9 @@ $(document).ready(function() {
             "<input id='"+aa+"'  style='display:none' name='stock[]' class='form-control col-sm-1' type='number' readonly value='"+$('#pstock').val()+"'>" +
             "<input id='"+aa+"' style='display:none'  name='sale_price[]' class='form-control col-sm-1' type='number' readonly value='"+$('#psale_price').val()+"'>" +
             "<input id='"+aa+"'  style='display:none' name='discount[]' class='form-control col-sm-1' type='number' readonly value='"+$('#pdiscount').val()+"'>" +
-            "<button id='btn2' style='display:none'  data-id='"+aa+"' class='form-control col-sm-1'>'"+aa+"'</button></div>")
+            "<button id='btn2'   data-id='"+aa+"' class='btn btn-primary col-xl-4'>Producto'"+ee+"'</button></div>")
         aa++;
+        ee++;
         /*
          $("x").append("<input id='"+aa+"'  name='feature[]' class='form-control' type='text' readonly value='"+$('#trait').val()+"'>");
          $("y").append("<input id='"+aa+"' name='desc[]' class='form-control' type='text' readonly value='"+$('#desc').val()+"'>");

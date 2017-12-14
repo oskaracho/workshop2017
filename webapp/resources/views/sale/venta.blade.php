@@ -285,9 +285,19 @@
 
                             </div>
                             <div class="form-group">
-                                {{--<p>Eliminar de la Compra</p>--}}
-                                <div id="xd">
-                                </div>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Carrito de Compra</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td id="xd"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
                             </div>
                         </div>
                     </div>

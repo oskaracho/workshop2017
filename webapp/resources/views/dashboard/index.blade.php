@@ -251,23 +251,63 @@
                                                 <section class="section">
                                                     <div class="row">
 
-                                                        <div class="col-md-6 col-md-push-9">
-                                                            <h3>TOTAL VENTAS</h3>
+                                                        <div class="col-md-4 col-md-push-4">
+                                                            <h3>TOTAL VENTAS ANUAL</h3>
 
                                                             <div class="box-placeholder"><h1>{{ $sales}}</h1></div>
                                                         </div>
-                                                        <div class="col-md-2 col-md-pull-9">
+                                                        <div class="col-md-4 col-md-pull-4">
                                                             {{--{{dd($ingresos)}};--}}
-                                                            <h3>TOTAL INGRESOS </h3>
+                                                            <h3>TOTAL INGRESOS ANUAL</h3>
                                                             <div class="box-placeholder">
                                                                 <h1>
                                                                     @foreach($ingresos as $in)
-                                                                        {{ $in->total_sales}}
+                                                                        {{ $in->total_sales}}Bs
                                                                     @endforeach
 
                                                                 </h1>
                                                             </div>
                                                         </div>
+                                                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                                        <script type="text/javascript">
+                                                            google.charts.load('current', {'packages':['gauge']});
+                                                            google.charts.setOnLoadCallback(drawChart);
+
+                                                            function drawChart() {
+
+                                                                var data = google.visualization.arrayToDataTable([
+                                                                    ['Label', 'Value'],
+                                                                    ['Ventas', 80],
+                                                                    ['Ingresos', 55],
+                                                                    ['Clientes', 68]
+                                                                ]);
+
+                                                                var options = {
+                                                                    width: 400, height: 120,
+                                                                    redFrom: 90, redTo: 100,
+                                                                    yellowFrom:75, yellowTo: 90,
+                                                                    minorTicks: 5
+                                                                };
+
+                                                                var chart = new google.visualization.Gauge(document.getElementById('ale'));
+
+                                                                chart.draw(data, options);
+
+                                                                setInterval(function() {
+                                                                    data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+                                                                    chart.draw(data, options);
+                                                                }, 13000);
+                                                                setInterval(function() {
+                                                                    data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+                                                                    chart.draw(data, options);
+                                                                }, 5000);
+                                                                setInterval(function() {
+                                                                    data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
+                                                                    chart.draw(data, options);
+                                                                }, 26000);
+                                                            }
+                                                        </script>
+                                                        <div id="ale" style="width: 400px; height: 120px;"></div>
                                                     </div>
                                                 </section>
                                             </div>
@@ -275,6 +315,7 @@
                                     </div>
                                 </div>
                             </section>
+
                             <script type="text/javascript" src={{ asset('https://www.gstatic.com/charts/loader.js')}}></script>
                             <script type="text/javascript">
                                 google.charts.load('current', {'packages':['corechart']});
@@ -290,7 +331,7 @@
                                     ]);
 
                                     var options = {
-                                        title: 'Reporte Mensual'
+                                        title: 'Reporte Anual'
                                     };
 
                                     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -320,8 +361,8 @@
                                     var materialOptions = {
                                         width: 900,
                                         chart: {
-                                            title: 'Nearby galaxies',
-                                            subtitle: 'distance on the left, brightness on the right'
+                                            title: 'Productos Vendidos por Mes',
+                                            subtitle: 'Cantidad de Productos '
                                         },
                                         series: {
                                             0: { axis: 'distance' }, // Bind series 0 to an axis named 'distance'.
@@ -329,7 +370,7 @@
                                         },
                                         axes: {
                                             y: {
-                                                distance: {label: 'parsecs'}, // Left y-axis.
+                                                distance: {label: 'Cantidad'}, // Left y-axis.
                                                 brightness: {side: 'right', label: 'apparent magnitude'} // Right y-axis.
                                             }
                                         }
@@ -352,7 +393,7 @@
                                     function drawMaterialChart() {
                                         var materialChart = new google.charts.Bar(chartDiv);
                                         materialChart.draw(data, google.charts.Bar.convertOptions(materialOptions));
-                                        button.innerText = 'Change to Classic';
+                                        button.innerText = 'Cambiar Vista';
                                         button.onclick = drawClassicChart;
                                     }
 
@@ -366,7 +407,7 @@
                                     drawMaterialChart();
                                 };
                             </script>
-                            <button id="change-chart">Change to Classic</button>
+                            <button id="change-chart" class="btn btn-info">Cambiar Vista</button>
                             <br><br>
                             <div id="chart_div" style="width: 800px; height: 500px;"></div>
                         </div>

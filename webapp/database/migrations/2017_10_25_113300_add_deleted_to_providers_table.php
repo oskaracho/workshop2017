@@ -13,10 +13,10 @@ class AddDeletedToProvidersTable extends Migration
      */
     public function up()
     {
-        Schema::table('providers', function (Blueprint $table) {
+      /*  Schema::table('providers', function (Blueprint $table) {
             //
             $table->softDeletes();
-        });
+        });*/
     }
 
     /**
@@ -26,8 +26,8 @@ class AddDeletedToProvidersTable extends Migration
      */
     public function down()
     {
-        Schema::table('providers', function (Blueprint $table) {
+     //   Schema::table('providers', function (Blueprint $table) {
             //
-        });
+       // });
     }
 }
