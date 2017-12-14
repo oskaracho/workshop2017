@@ -66,12 +66,11 @@ date_add($date, date_interval_create_from_date_string('60 days'));
 </table>
 <table cellspacing="0" cellpadding="1" border="0">
     <tr>
-        <td>Código de Control: {{$warehouse[0]->number}} </td>
+        <td>Código de Control: 62654644554654654654654564888</td>
     </tr>
     <tr>
         <td >Fecha Límite de Emisión: {{date_format($date, 'd-m-Y')}}</td>
-        <td><img width="80" height="80" src="https://api.qrserver.com/v1/create-qr-code/?data=123222113|{{$warehouse[0]->id}}|{{$warehouse[0]->num_auto}}|{{$separa5}}|{{$Total}}|{{$Total}}|{{$warehouse[0]->number}}|{{$warehouse[0]->voucher_num}}|0.00|0.00|0.00|0.00"/>
-        </td>
+        
     </tr>
     <br>
     <br>

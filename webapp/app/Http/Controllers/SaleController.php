@@ -91,6 +91,8 @@ class SaleController extends Controller
             $mytime = Carbon::now('America/La_Paz');
             $sale->date = $mytime->toDayDateTimeString();
             $sale->tax = '18';
+            $sale->number = $code;
+        +   $sale->num_auto = 7904006306693;
             $sale->state = 'A';
             $sale->save();
 

@@ -91,6 +91,7 @@ class PdfController extends Controller
             ->join('saledetail', 'sales.id', '=', 'saledetail.sale_id')
             ->join('articles', 'articles.id', '=', 'saledetail.article_id')
             ->select('sales.*','customers.*','saledetail.*','articles.sale_price','articles.name as na_Pro')
+            ->where('sales.id','=',$tipo)
             ->get();
 
         return $this->crearPDF($sale, $vistaurl,1);
