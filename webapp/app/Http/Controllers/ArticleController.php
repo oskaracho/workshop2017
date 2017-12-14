@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Art_ven;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Http\Controllers;
@@ -67,7 +68,16 @@ class ArticleController extends Controller
         $article -> stock = $request -> stock;
         $article -> state = $request -> state;
         $article -> sale_price = $request -> sale_price;
+        $article -> stock_start = $request -> stock;
+        $article -> status = 1;
         $article -> save();
+        $art = new Art_ven;
+        $art -> idarticle = $article->id;
+        $art -> code = $request -> code;
+        $art -> stock_start = $request -> stock;
+        $art -> sale_price = $request -> sale_price;
+        $art -> status = 1;
+        $art -> save();
         return redirect('article');
 
     }

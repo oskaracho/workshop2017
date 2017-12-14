@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Art_ven;
 use App\ControlCode;
 use App\Customer;
 use Illuminate\Http\Request;
@@ -79,7 +80,7 @@ class SaleController extends Controller
             $request->sale_total,//
             'zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS'
         );
-        dd($request);
+        //dd($request);
         //try {
             DB::beginTransaction();
             $sale = new Sale;
@@ -92,7 +93,7 @@ class SaleController extends Controller
             $sale->date = $mytime->toDayDateTimeString();
             $sale->tax = '18';
             $sale->number = $code;
-        +   $sale->num_auto = 7904006306693;
+           $sale->num_auto = 7904006306693;
             $sale->state = 'A';
             $sale->save();
 
@@ -111,9 +112,20 @@ class SaleController extends Controller
                 $detail->discount = $discount[$cont];
                 $detail->sale_price = $sale_price[$cont];
                 $detail->save();
+
                 $articulo =Article::findOrFail($article_id[$cont]);
                 $articulo->stock = (($stock[$cont])-($quantity[$cont]));
                 $articulo->update();
+
+                $art = new Art_ven;
+                $art -> idarticle = $article_id[$cont];
+                $art -> code = 000;
+                $art -> stock_start = $quantity[$cont];
+                $art -> sale_price = $sale_price[$cont];
+                $art -> cant_res = (($stock[$cont])-($quantity[$cont]));
+                $art -> status = 2;
+                $art -> save();
+
                 $cont = $cont + 1;
             }
 
