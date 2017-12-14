@@ -21,7 +21,7 @@
         </li>
         <li class="@yield('menu_report','')">
             <a href="dashboard">
-                <i class="fa fa-home"></i> Dashword  </a>
+                <i class="fa fa-home"></i> Dashboard  </a>
         </li>
         <li class="@yield('menu_catalog','')">
             <a href="index.html">
